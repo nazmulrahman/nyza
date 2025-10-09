@@ -1,0 +1,805 @@
+<!-- This is the complete HTML document for the homepage, now with a fully responsive navigation bar. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyza Engineering Design</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font import for a professional look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght400;700;900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0e14; /* Dark background to match the image */
+        }
+
+        /* Hero section specific styles to handle the background image */
+        .hero-bg {
+            /* Assuming 'hero.jpg' is the dark robot background image */
+            background-image: url('hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect */
+        }
+
+        /* Custom styles for the expertise cards with background images */
+        .card-bg-1 {
+            background-image: url('images/core/hardware.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-bg-2 {
+            background-image: url('images/card-3.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-bg-3 {
+            background-image: url('https://placehold.co/800x600/1f2937/fff?text=Prototyping+and+Design');
+            background-size: cover;
+            background-position: center;
+        } 
+        
+        .expertise-overlay {
+        /* Add a transition property for smooth fading */
+        transition: background-color 0.4s ease-in-out, opacity 0.4s ease-in-out; 
+        }
+
+        /* Target the parent card's hover state */
+        .expertise-card:hover .expertise-overlay {
+            /* On hover, make the overlay nearly transparent to reveal the image */
+            background-color: rgb(17 24 39 / 20%); /* Keep a very slight dark tint */
+            opacity: 0.8; /* You can adjust this for the perfect level of image clarity */
+        }
+
+        /* Also, make the text a bit dimmer on hover, or keep it bright and just let the background fade */
+        /* Optionally fade the text slightly or change its color on hover:
+        .expertise-card:hover .expertise-overlay h3,
+        .expertise-card:hover .expertise-overlay p {
+            text-shadow: 0 0 8px rgba(0, 0, 0, 0.9); 
+        }
+        */
+
+
+        /* --- CUSTOM STYLES FOR FLOATING CARDS (DARK, GLOWING THEME) --- */
+        
+        /* Keyframes for the gentle floating up and down animation */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(0.2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        /* Card container for the hover effect */
+        .interactive-card {
+            /* Base styles for the small card */
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease-in-out;
+            cursor: pointer;
+            width: 280px; /* Fixed width for better control */
+            height: 64px; /* Fixed height for the small state */
+            border-radius: 0.75rem; /* rounded-xl */
+            
+            /* Dark Theme and Subtle Blue Glow */
+            background-color: #1f2937; /* Dark gray background */
+            color: #ffffff; /* Light text */
+            border: 1px solid rgba(93, 168, 255, 0.2); /* Subtle blue border */
+            box-shadow: 0 0 10px rgba(93, 168, 255, 0.2); /* Soft initial glow */
+            
+            /* Floating animation */
+            animation: float 5s ease-in-out infinite;
+        }
+
+        /* Enhanced style on hover */
+        .interactive-card:hover {
+            z-index: 50; 
+            height: 250px; /* The new, expanded height */
+            /* Stronger shadow on hover to enhance the glow effect */
+            box-shadow: 0 0 20px rgba(93, 168, 255, 0.6); 
+            transform: scale(1.05) translateY(-5px); /* Add slight scale and lift for depth */
+        }
+        
+        /* The expanded content area on hover */
+        .interactive-card .expanded-content {
+            height: 0;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: height 0.5s ease-in-out, opacity 0.4s ease-in-out 0.1s, transform 0.5s ease-in-out;
+            background-color: #111827; /* Even darker background for expanded area */
+            border-top: 1px solid rgba(93, 168, 255, 0.3);
+        }
+
+        
+        .interactive-card:hover .expanded-content {
+            height: 186px; /* 250px (total) - 64px (header) = 186px */
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Individual delays for the floating effect */
+        .floating-card-1 { animation-delay: 0s; }
+        .floating-card-2 { animation-delay: -1.5s; }
+        .floating-card-3 { animation-delay: -3s; }
+        .floating-card-4 { animation-delay: -0.7s; }
+        .floating-card-5 { animation-delay: -2.2s; }
+
+        /* Custom images for the cards */
+        .card-img-1 { background-image: url('images/hero/electrical.jpg'); background-size: cover; background-position: center; }
+       
+        .card-img-3 { background-image: url('images/hero/industrial.jpg'); background-size: cover; background-position: center; }
+        
+        .card-img-5 { background-image: url('images/hero/Prototyping.png'); background-size: cover; background-position: center; }
+
+        /* The blue background behind the main text */
+        .hero-content-bg {
+            background-color: rgb(24 28 36 / 70%); /* Tailwind gray-900 with some transparency */
+            backdrop-filter: blur(5px);
+            border-radius: 1rem; /* rounded-xl */
+            padding: rem; /* p-12 */
+            border: 1px solid rgba(93, 168, 255, 0.2);
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-gray-600 bg-opacity-40 backdrop-filter backdrop-blur-sm shadow-md">
+        <nav class="max-w-8xl mx-auto flex justify-between items-center px-6 md:px-12 lg:px-48 h-16">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-2">
+                <img src="images/2.png" alt="Nyza Engineering Logo" class="h-16">
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex items-center space-x-8 text-white">
+                <a href="index.html" class="font-medium hover:text-[rgb(93,168,255)] transition-colors">Home</a>
+                <a href="projects.html" class="font-medium hover:text-[rgb(93,168,255)] transition-colors">Projects</a>
+                <a href="expertise.html" class="font-medium hover:text-[rgb(93,168,255)] transition-colors">Expertise</a>
+                <a href="#" class="font-medium hover:text-[rgb(93,168,255)] transition-colors">Why Us</a>
+                <button class="bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg">
+                    HIRE US
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 bg-opacity-90 backdrop-filter backdrop-blur-sm shadow-lg">
+            <div class="flex flex-col items-center py-4 space-y-4 text-white">
+                <a href="#" class="font-medium text-lg hover:text-[rgb(93,168,255)] transition-colors w-full text-center py-2">Home</a>
+                <a href="#" class="font-medium text-lg hover:text-[rgb(93,168,255)] transition-colors w-full text-center py-2">Projects</a>
+                <a href="#" class="font-medium text-lg hover:text-[rgb(93,168,255)] transition-colors w-full text-center py-2">Expertise</a>
+                <a href="#" class="font-medium text-lg hover:text-[rgb(93,168,255)] transition-colors w-full text-center py-2">Why Us</a>
+                <button class="bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg w-auto">
+                    HIRE US
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section Start - REMOVED CENTRAL IMAGE -->
+    <section id="hero-section">
+        <div class="relative w-full h-screen flex items-center justify-center text-white hero-bg">
+            <!-- Background overlay for better text readability -->
+            <div class="absolute inset-0 bg-gray-900 bg-opacity-70"></div>
+
+            <!-- Main Content Container -->
+            <div class="relative z-10 w-full h-full flex items-center justify-center">
+
+                <!-- Content container (Wider layout with reduced margins) -->
+                <div class="relative w-full max-w-[100rem] mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center justify-between">
+                    
+                    <!-- Left Column: Text Content with a transparent background -->
+                    <div class="relative z-10 w-full lg:basis-1/2 p-6 md:p-8">
+                        <!-- Restored original text format -->
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2">
+                            Robots<span class="text-[rgb(93,168,255)]">.</span> <br> Designed<span class="text-[rgb(93,168,255)]">.</span> Built<span class="text-[rgb(93,168,255)]">.</span>
+                        </h1>
+                        <!-- "Powered by Us" tagline -->
+                        <p class="text-base font-medium tracking-wide mb-8 text-[rgb(93,168,255)] pl-80">
+                            <span class="animate-pulse font-bold text-xl">9+</span> years of domain expertise
+                        </p>
+                        <!-- Small paragraph below the title -->
+                        <div class="text-lg md:text-xl font-light leading-relaxed space-y-3">
+                            <p class=" font-semibold">Struggling to validate your concept?</p>
+                            <p class=" font-semibold">We provide prototyping support to early stage startups and inventors </p>
+                            <p class=" font-semibold">Helping team avoid costly mistakes in their early R&D stages</p>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Floating Cards over Background Image -->
+                    <div class="relative w-full lg:basis-1/2 flex items-center justify-center pt-16 lg:pt-0">
+                        
+                        <!-- Floating Cards Container (Centered in the right half) -->
+                        <div class="relative w-full max-w-md h-auto lg:h-[550px] mx-auto scale-90 lg:scale-100 flex flex-col items-center lg:block">
+                            
+                            <!-- --- FLOATING INTERACTIVE CARDS ARRANGED IN A CURVE (>) --- -->
+
+                            <!-- Card 1: Top -->
+                            <div class="interactive-card floating-card-1 lg:absolute lg:top-0 lg:left-30 mb-4 lg:mb-0 relative">
+                                <div class="p-4 flex items-center justify-between h-16">
+                                    <div class="flex items-center space-x-3">
+                                        <svg class="h-6 w-6 text-[rgb(93,168,255)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                                        </svg>
+                                        <div>
+                                            <h4 class="font-bold text-sm">Hardware Integration</h4>
+                                            <p class="text-xs text-gray-400">Electrical Design</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Glowing Circular Down Arrow (Right Corner) -->
+                                    <div class="flex items-center justify-center w-6 h-6 rounded-full bg-[rgb(93,168,255)] shadow-[0_0_10px_rgba(93,168,255,0.8)] animate-pulse" style="animation-duration: 1s;">
+                                        <svg class="w-3.5 h-3.5 text-white font-bold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </div>
+                                </div>
+
+                                <div class="expanded-content text-white">
+                                    <div class="h-3/4 card-img-1"></div>
+                                    <p class="text-xs p-2 text-center">Power supply & distribution, Custom PCB</p>
+                                </div>
+                            </div>
+
+
+                            
+                           
+
+                            <!-- Card 3: Center -->
+                            <div class="interactive-card floating-card-3 lg:absolute lg:top-1/2 lg:left-64 lg:transform lg:-translate-y-1/2 mb-4 lg:mb-0">
+                                <div class="p-4 flex items-center justify-between space-x-3 h-16">
+                                    
+                                    <svg class="h-6 w-6 text-[rgb(93,168,255)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.969L17 8a2 2 0 00-2-2h-2.22l-.76-.416C10.74 4.148 9.277 3 7.76 3A4 4 0 003 7v8z"></path>
+                                    </svg>
+
+                                    <div>
+                                        <h4 class="font-bold text-sm">Mechanical Design</h4>
+                                        <p class="text-xs text-gray-400">Product Design</p>
+                                    </div>
+
+                                    <!-- Glowing Circular Down Arrow (Right Corner) -->
+                                    <div class="flex items-center justify-center w-6 h-6 rounded-full bg-[rgb(93,168,255)] shadow-[0_0_10px_rgba(93,168,255,0.8)] animate-pulse" style="animation-duration: 1s;">
+                                        <svg class="w-3.5 h-3.5 text-white font-bold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </div>
+
+                                </div>
+                                <div class="expanded-content text-white">
+                                    <div class="h-3/4 card-img-3"></div>
+                                    <p class="text-xs p-2 text-center">Hand sketches to detailed CAD 3D models</p>
+                                </div>
+                            </div>
+
+                            
+
+                            <!-- Card 5: Bottom -->
+                            <div class="interactive-card floating-card-5 lg:absolute lg:bottom-0 lg:left-30">
+                                <div class="p-4 flex items-center justify-between space-x-3 h-16">
+                                    <svg class="h-6 w-6 text-[rgb(93,168,255)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h10m-3 2v4m-2-4v4m-2 4h4m-4 0h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <div>
+                                        <h4 class="font-bold text-sm">Prototyping</h4>
+                                        <p class="text-xs text-gray-400">Fabrication & Assembly</p>
+                                    </div>
+                                    <!-- Glowing Circular Down Arrow (Right Corner) -->
+                                    <div class="flex items-center justify-center w-6 h-6 rounded-full bg-[rgb(93,168,255)] shadow-[0_0_10px_rgba(93,168,255,0.8)] animate-pulse" style="animation-duration: 1s;">
+                                        <svg class="w-3.5 h-3.5 text-white font-bold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </div>
+
+                                </div>
+                                <div class="expanded-content text-white">
+                                    <div class="h-3/4 card-img-5"></div>
+                                    <p class="text-xs p-2 text-center">3D printing, laser cutting and CNC</p>
+                                </div>
+                            </div>
+                            
+                            <!-- --- END FLOATING INTERACTIVE CARDS --- -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Expertise Highlights Section Start -->
+    <section id="expertise-section" class="py-20 bg-gray-900 text-white">
+        <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-72">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-16">
+                Our Core Expertise
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-12">
+                <!-- Expertise Card 1 -->
+                <div class="relative h-96 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105 overflow-hidden card-bg-1 expertise-card">
+                    <div class="absolute inset-0 bg-gray-900 bg-opacity-80 flex flex-col justify-center items-center p-8 text-center expertise-overlay">
+                        <h3 class="text-2xl font-bold mb-2">Hardware Design and Prototyping</h3>
+                        <p class="text-white">
+                        We provide complete hardware development solutions, combining expertise in CAD modeling, mechanical design, simulation, and PCB development. Our team focuses on creating robust, high-precision prototypes that seamlessly integrate mechanical and electronic systems for reliable real-world performance.
+                        </p>
+                    </div>
+                </div>
+                <!-- Expertise Card 2 -->
+                <div class="relative h-96 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105 overflow-hidden card-bg-2 expertise-card">
+                    <div class="absolute inset-0 bg-gray-900 bg-opacity-70 flex flex-col justify-center items-center p-8 text-center expertise-overlay">
+                        <h3 class="text-2xl font-bold mb-2">Robotics Software</h3>
+                        <p class="text-white">
+                            We develop advanced robotics software using ROS, integrating computer vision, AI, and firmware for intelligent, autonomous systems. From control algorithms to system testing, we ensure every robot operates efficiently, reliably, and with seamless hardware-software integration.
+                        </p>
+                    </div>
+                </div>
+               
+               
+            </div>
+        </div>
+    </section>
+    <!-- Expertise Highlights Section End -->
+
+    <!-- Design Process Section Start -->
+    <section id="design-process" class="py-12 md:py-20 bg-gray-900 text-white">
+        <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-72">
+            <!-- Increased gap for better mobile spacing -->
+            <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
+                <!-- Left Column: Process Steps -->
+                <div class="md:w-1/2">
+                    <p class="text-[rgb(93,168,255)] uppercase tracking-widest text-sm font-semibold mb-2">Our Design Process</p>
+                    <!-- Adjusted font sizes for better responsiveness -->
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 md:mb-8">
+                        How We Transform Ideas into Reality
+                    </h2>
+                    <p class="text-gray-300 mb-6 md:mb-10">
+                        Our design process combines engineering expertise with creative problem-solving to deliver innovative robotics solutions. We follow a proven methodology that ensures every project exceeds expectations.
+                    </p>
+
+                    <!-- Process Steps -->
+                    <ol class="space-y-4 md:space-y-6">
+                        <!-- Step 1 -->
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-full bg-[rgb(93,168,255)] text-white font-bold text-lg">1</span>
+                            <div>
+                                <h3 class="text-xl font-bold">Discovery</h3>
+                                <p class="text-gray-300">
+                                    We begin by understanding your challenges, goals, and vision through in-depth consultations.
+                                </p>
+                            </div>
+                        </li>
+                        <!-- Step 2 -->
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-full bg-[rgb(93,168,255)] text-white font-bold text-lg">2</span>
+                            <div>
+                                <h3 class="text-xl font-bold">Concept Development</h3>
+                                <p class="text-gray-300">
+                                    Our engineers create custom designs and prototypes tailored to your specific requirements.
+                                </p>
+                            </div>
+                        </li>
+                        <!-- Step 3 -->
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-full bg-[rgb(93,168,255)] text-white font-bold text-lg">3</span>
+                            <div>
+                                <h3 class="text-xl font-bold">Implementation</h3>
+                                <p class="text-gray-300">
+                                    We bring your solution to life with precision engineering and quality craftsmanship.
+                                </p>
+                            </div>
+                        </li>
+                        <!-- Step 4 -->
+                        <li class="flex items-start space-x-4">
+                            <span class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-full bg-[rgb(93,168,255)] text-white font-bold text-lg">4</span>
+                            <div>
+                                <h3 class="text-xl font-bold">Optimization</h3>
+                                <p class="text-gray-300">
+                                    Through testing and refinement, we ensure your robotics solution performs at its peak.
+                                </p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Right Column: Video Player with embedded YouTube video -->
+                <!-- UPDATED: Added w-full for full-width on all screen sizes to prevent shrinking -->
+                <div class="md:w-1/2 w-full flex justify-center items-center px-4 md:px-0 mt-8 md:mt-0">
+                    <div class="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+                        <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/vMGoHL_HHtI?si=2Qg73IdlMZ_DP6cJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Design Process Section End -->
+
+    <!-- Featured Projects Section Start -->
+    <section id="projects-section" class="py-12 md:py-20 bg-gray-800 text-white">
+        <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-72">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center mb-12 md:mb-16">
+                Featured Projects
+            </h2>
+            <div class="grid grid-cols-1 gap-12 md:gap-20">
+                <!-- Project Card 1: Image on Right -->
+                <div class="bg-gray-900 rounded-xl shadow-lg flex flex-col md:flex-row items-stretch overflow-hidden">
+                    <!-- Text Content - Adjusted padding and font sizes for better mobile view -->
+                    <div class="md:w-1/2 p-6 lg:p-12 space-y-3">
+                        <h3 class="text-[rgb(93,168,255)] uppercase tracking-widest text-xs sm:text-sm font-semibold">Industrial Automation</h3>
+                        <h4 class="text-2xl sm:text-3xl font-bold mb-2">Automated Warehouse System</h4>
+                        <div>
+                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">OVERVIEW</h5>
+                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
+                                We designed and implemented a fully autonomous robot for sorting and transporting packages in a large-scale warehouse, significantly boosting efficiency.
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">PROJECT BRIEF</h5>
+                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
+                                Our solution uses advanced computer vision and pathfinding algorithms to significantly boost operational efficiency and reduce human error, with a focus on safety and scalability.
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">ROLE</h5>
+                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
+                                Lead Mechanical Engineer, Robotics Programmer
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">METHOD</h5>
+                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
+                                We followed a modular design approach, with custom CAD models drawn using Fusion 360 and simulations performed to validate the design before physical prototyping.
+                            </p>
+                        </div>
+
+                        <!-- Skill Tags -->
+                        <div class="flex flex-wrap gap-2 pt-4">
+                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Fusion 360</span>
+                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">CAD</span>
+                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">3D Modeling</span>
+                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Mechanical Design</span>
+                        </div>
+                        <!-- New button group -->
+                        <div class="flex flex-wrap gap-4 mt-6">
+                            <a href="solar.html" class="bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg text-sm inline-block">
+                                View Project Detail
+                            </a>
+                            <a href="projects.html" class="bg-gray-700 hover:bg-gray-600 transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg text-sm inline-block">
+                                See all projects
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Image -->
+                    <div class="md:w-1/2 p-4 md:p-6 flex items-center justify-center">
+                        <img src="https://placehold.co/800x600/1f2937/fff?text=Automated+Warehouse" alt="Automated Warehouse System" class="w-full h-auto object-cover rounded-md">
+                    </div>
+                </div>
+
+                <!-- Project Card 2: Image on Left -->
+                <div class="bg-gray-900 rounded-xl shadow-lg flex flex-col md:flex-row-reverse items-stretch overflow-hidden">
+                    <!-- Text Content - Adjusted padding and font sizes for better mobile view -->
+                    <div class="md:w-1/2 p-6 lg:p-12 space-y-3">
+                        <h3 class="text-[rgb(93,168,255)] uppercase tracking-widest text-xs sm:text-sm font-semibold">Medical Robotics</h3>
+                        <h4 class="text-2xl sm:text-3xl font-bold mb-2">Medical Assistance Robot</h4>
+                        <div>
+                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">OVERVIEW</h5>
+                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
+                                A compact and precise robotic arm for assisting surgeons in delicate procedures.
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">PROJECT BRIEF</h5>
+                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
+                                The design prioritizes sterile environments and intuitive controls, allowing for remote operation and a reduction in human error.
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">ROLE</h5>
+                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
+                                Senior Mechatronics Engineer, Project Manager
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">METHOD</h5>
+                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
+                                We utilized advanced materials and control systems to ensure precision and safety, with a focus on improving patient outcomes and surgical precision.
+                            </p>
+                        </div>
+
+                        <!-- Skill Tags -->
+                        <div class="flex flex-wrap gap-2 pt-4">
+                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">SolidWorks</span>
+                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Robotics</span>
+                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Embedded Systems</span>
+                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Medical Device Design</span>
+                        </div>
+                        <!-- New button group -->
+                        <div class="flex flex-wrap gap-4 mt-6">
+                            <a href="#" class="bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg text-sm inline-block">
+                                View Project Detail
+                            </a>
+                            <a href="#" class="bg-gray-700 hover:bg-gray-600 transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg text-sm inline-block">
+                                See all projects
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Image -->
+                    <div class="md:w-1/2 p-4 md:p-6 flex items-center justify-center">
+                        <img src="https://placehold.co/800x600/1f2937/fff?text=Medical+Assistance" alt="Medical Assistance Robot" class="w-full h-auto object-cover rounded-md">
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-16">
+                <button class="bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg text-sm">
+                    View All Projects
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Featured Projects Section End -->
+
+    <!-- Client Feedback Section Start -->
+    <section id="client-feedback" class="py-20 bg-gray-900 text-white">
+        <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-72">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-16">
+                What Our Clients Say
+            </h2>
+
+            <div class="relative w-full overflow-hidden">
+                <!-- Carousel track for the cards -->
+                <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out">
+                    <!-- Testimonial Card 1 -->
+                    <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4">
+                        <div class="bg-gray-800 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center h-full">
+                            <img src="https://placehold.co/100x100/A0B9DE/fff?text=Client+1" alt="Client 1" class="w-32 h-32 rounded-full mb-6 object-cover aspect-square border-4 border-[rgb(93,168,255)]">
+                            <h4 class="text-xl font-bold mb-1">Kelley West</h4>
+                            <p class="text-base text-gray-400 font-medium mb-4">Mobile Designer</p>
+                            <p class="text-base text-gray-300 leading-relaxed mb-6">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 2 -->
+                    <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4">
+                        <div class="bg-gray-800 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center h-full">
+                            <img src="https://placehold.co/100x100/96A1B2/fff?text=Client+2" alt="Client 2" class="w-32 h-32 rounded-full mb-6 object-cover aspect-square border-4 border-[rgb(93,168,255)]">
+                            <h4 class="text-xl font-bold mb-1">Vanessa Martinez</h4>
+                            <p class="text-base text-gray-400 font-medium mb-4">Web Designer</p>
+                            <p class="text-base text-gray-300 leading-relaxed mb-6">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 3 -->
+                    <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4">
+                        <div class="bg-gray-800 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center h-full">
+                            <img src="https://placehold.co/100x100/96A1B2/fff?text=Client+3" alt="Client 3" class="w-32 h-32 rounded-full mb-6 object-cover aspect-square border-4 border-[rgb(93,168,255)]">
+                            <h4 class="text-xl font-bold mb-1">Sarah Bowen</h4>
+                            <p class="text-base text-gray-400 font-medium mb-4">UI Designer</p>
+                            <p class="text-base text-gray-300 leading-relaxed mb-6">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Testimonial Card 4 -->
+                    <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4">
+                        <div class="bg-gray-800 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center h-full">
+                            <img src="https://placehold.co/100x100/96A1B2/fff?text=Client+4" alt="Client 4" class="w-32 h-32 rounded-full mb-6 object-cover aspect-square border-4 border-[rgb(93,168,255)]">
+                            <h4 class="text-xl font-bold mb-1">David Murphy</h4>
+                            <p class="text-base text-gray-400 font-medium mb-4">Web Developer</p>
+                            <p class="text-base text-gray-300 leading-relaxed mb-6">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Testimonial Card 5 -->
+                    <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4">
+                        <div class="bg-gray-800 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center h-full">
+                            <img src="https://placehold.co/100x100/A0B9DE/fff?text=Client+5" alt="Client 5" class="w-32 h-32 rounded-full mb-6 object-cover aspect-square border-4 border-[rgb(93,168,255)]">
+                            <h4 class="text-xl font-bold mb-1">Kelley West</h4>
+                            <p class="text-base text-gray-400 font-medium mb-4">Mobile Designer</p>
+                            <p class="text-base text-gray-300 leading-relaxed mb-6">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carousel Navigation Buttons -->
+                <button id="prev-button" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-[rgb(93,168,255)] transition-colors hidden md:block">
+                    &lt;
+                </button>
+                <button id="next-button" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-[rgb(93,168,255)] transition-colors hidden md:block">
+                    &gt;
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Client Feedback Section End -->
+
+    <!-- Footer Section Start -->
+    <footer class="bg-gray-950 text-white pt-20">
+        <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-72">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-b border-gray-800 pb-4">
+                <!-- Column 1: Company Info -->
+                <div>
+                    <!-- Logo -->
+                    <a href="#" class="flex items-center space-x-2 mb-4">
+                        <img src="images/2.png" alt="Nyza Engineering Logo" class="h-16">
+                    </a>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Revolutionizing robotics and automation with cutting-edge innovation and exceptional engineering expertise from Bangladesh.
+                    </p>
+                    <div class="flex space-x-4 text-xl">
+                        <a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h5 class="text-lg font-bold mb-6">Quick Links</h5>
+                    <ul class="space-y-3">
+                        <!-- Updated quick links to match the new page list -->
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Projects</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Expertise</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Why Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Hire Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Our Expertise (Updated heading) -->
+                <div>
+                    <h5 class="text-lg font-bold mb-6">Our Expertise</h5>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Custom Robotics Development</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">AI-Driven Surveillance</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Automation & Industrial Robotics</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Embedded Systems & IoT</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Smart Agriculture Solutions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Consultation & Research</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact Us -->
+                <div>
+                    <h5 class="text-lg font-bold mb-6">Contact Us</h5>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-center space-x-3">
+                            <svg class="h-5 w-5 text-[rgb(93,168,255)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span>Dhaka, Bangladesh</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="h-5 w-5 text-[rgb(93,168,255)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.293 1.147a1 1 0 00-.464 1.186l.96 1.764a1 1 0 001.21.502l4.493-1.498a1 1 0 011.21-.502l1.147 2.293a1 1 0 001.186.464l1.764-.96a1 1 0 00.502-1.21l-1.498-4.493a1 1 0 01.684-.948H19a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path></svg>
+                            <span>+8801575436196</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="h-5 w-5 text-[rgb(93,168,255)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <span>contact@nyzaengineering.com</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="mt-6 inline-block bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-3 px-8 rounded-md shadow-lg">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+
+            <!-- Copyright and Legal Links -->
+            <div class="text-center py-8">
+                <p class="text-gray-500 text-sm">
+                    © 2025 Nyza Engineering Design. All rights reserved.
+                </p>
+                <div class="mt-2 text-gray-500 text-sm space-x-4">
+                    <a href="#" class="hover:text-[rgb(93,168,255)] transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-[rgb(93,168,255)] transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-[rgb(93,168,255)] transition-colors">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const carouselTrack = document.getElementById('carousel-track');
+            const prevButton = document.getElementById('prev-button');
+            const nextButton = document.getElementById('next-button');
+            const totalCards = carouselTrack.children.length;
+            let currentCardIndex = 0;
+            let slideInterval;
+
+            function getVisibleSlides() {
+                if (window.innerWidth >= 1024) return 3;
+                if (window.innerWidth >= 768) return 2;
+                return 1;
+            }
+
+            function updateCarousel() {
+                const visibleSlides = getVisibleSlides();
+                const totalSlides = totalCards - visibleSlides;
+                if (currentCardIndex > totalSlides) {
+                    currentCardIndex = totalSlides;
+                }
+                const cardWidthPercentage = 100 / visibleSlides;
+                carouselTrack.style.transform = `translateX(-${currentCardIndex * cardWidthPercentage}%)`;
+            }
+
+            function startAutoplay() {
+                stopAutoplay(); // Clear any existing interval
+                slideInterval = setInterval(() => {
+                    const visibleSlides = getVisibleSlides();
+                    const totalSlides = totalCards - visibleSlides;
+                    currentCardIndex = (currentCardIndex + 1);
+                    if (currentCardIndex > totalSlides) {
+                        currentCardIndex = 0; // Loop back to the start
+                    }
+                    updateCarousel();
+                }, 3000); // Change slide every 3 seconds
+            }
+
+            function stopAutoplay() {
+                clearInterval(slideInterval);
+            }
+
+            nextButton.addEventListener('click', () => {
+                stopAutoplay();
+                const visibleSlides = getVisibleSlides();
+                const totalSlides = totalCards - visibleSlides;
+                if (currentCardIndex < totalSlides) {
+                    currentCardIndex++;
+                }
+                updateCarousel();
+                startAutoplay();
+            });
+
+            prevButton.addEventListener('click', () => {
+                stopAutoplay();
+                if (currentCardIndex > 0) {
+                    currentCardIndex--;
+                } else {
+                    const visibleSlides = getVisibleSlides();
+                    const totalSlides = totalCards - visibleSlides;
+                    currentCardIndex = totalSlides; // Loop to the end
+                }
+                updateCarousel();
+                startAutoplay();
+            });
+
+            // Adjust carousel on resize
+            window.addEventListener('resize', () => {
+                stopAutoplay();
+                currentCardIndex = 0; // Reset to the beginning on resize
+                updateCarousel();
+                startAutoplay();
+            });
+
+            // Start autoplay initially
+            startAutoplay();
+
+            // Mobile menu functionality
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

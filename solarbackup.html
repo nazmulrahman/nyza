@@ -1,0 +1,320 @@
+<!-- This is the complete HTML document for a dedicated Project page. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyza Engineering Design - Project Title</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom font import for a professional look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+
+        /* Custom CSS variables for a consistent dark theme */
+        :root {
+            --bg-color: #0d0e14;
+            --text-color: #fff;
+            --primary-color: #5da8ff;
+            --accent-color: #3f8ae1;
+            --card-bg: #111827;
+            --secondary-bg: #1f2937;
+            --border-color: #374151;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --placeholder-bg: #1f2937;
+        }
+
+        /* Applying variables to the body and other elements for a dark theme */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* Custom class for the active navigation link */
+        .nav-link.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .hero-bg {
+            background-image: url('https://placehold.co/1920x1080/1f2937/fff?text=Project+Hero+Image');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-bg-color text-text-color">
+
+    <!-- Header Section -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-white bg-opacity-10 backdrop-filter backdrop-blur-sm shadow-md">
+        <nav class="max-w-8xl mx-auto flex justify-between items-center px-6 md:px-12 lg:px-48 h-16">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-2">
+                <img src="images/2.png" alt="Nyza Engineering Logo" class="h-16">
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex items-center space-x-8 text-white">
+                <a href="index.html" class="font-medium hover:text-[rgb(93,168,255)] transition-colors">Home</a>
+                <a href="projects.html" class="font-medium hover:text-[rgb(93,168,255)] transition-colors">Projects</a>
+                <a href="expertise.html" class="font-medium hover:text-[rgb(93,168,255)] transition-colors">Expertise</a>
+                <a href="#" class="font-medium hover:text-[rgb(93,168,255)] transition-colors">Why Us</a>
+                <button class="bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg">
+                    HIRE US
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 bg-opacity-90 backdrop-filter backdrop-blur-sm shadow-lg">
+            <div class="flex flex-col items-center py-4 space-y-4 text-white">
+                <a href="#" class="font-medium text-lg hover:text-[rgb(93,168,255)] transition-colors w-full text-center py-2">Home</a>
+                <a href="#" class="font-medium text-lg hover:text-[rgb(93,168,255)] transition-colors w-full text-center py-2">Projects</a>
+                <a href="#" class="font-medium text-lg hover:text-[rgb(93,168,255)] transition-colors w-full text-center py-2">Expertise</a>
+                <a href="#" class="font-medium text-lg hover:text-[rgb(93,168,255)] transition-colors w-full text-center py-2">Why Us</a>
+                <button class="bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg w-auto">
+                    HIRE US
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="pt-16 pb-20 bg-secondary">
+
+        <!-- Hero Section -->
+        <section class="hero-bg h-screen flex items-center justify-center text-center relative px-4">
+            <!-- Background Overlay -->
+            <div class="absolute inset-0 bg-black opacity-60"></div>
+            <!-- Hero Content -->
+            <div class="relative z-10 max-w-4xl">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4">
+                    Our Iconic Project Title
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+                    A brief, compelling description of the project, highlighting its main goals and impact. This section grabs the visitor's attention and sets the stage for the details to follow.
+                </p>
+                <a href="#details" class="bg-primary hover:bg-accent transition-colors text-white font-bold py-3 px-8 rounded-md shadow-lg">
+                    Learn More
+                </a>
+            </div>
+        </section>
+
+        <!-- Project Details Section -->
+        <section id="details" class="py-20">
+            <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-72">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-12">
+                    Project Overview
+                </h2>
+                <div class="bg-card p-8 rounded-xl shadow-lg">
+                    <p class="text-gray-400 text-lg leading-relaxed mb-4">
+                        This project was a comprehensive solution aimed at [Problem]. Our team utilized [Key Technology 1] and [Key Technology 2] to develop a scalable and efficient system that exceeded our client's expectations. The development process involved a deep dive into [Industry-Specific Detail], ensuring that the final product was not only functional but also tailored to the unique needs of the sector.
+                    </p>
+                    <p class="text-gray-400 text-lg leading-relaxed">
+                        Key outcomes of this project include a significant increase in operational efficiency, a reduction in manual error rates, and the creation of a user-friendly interface that has been praised by end-users. This project stands as a testament to our commitment to innovative and practical engineering design.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Showcase Section -->
+        <section class="py-20 bg-gray-800">
+            <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-72">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-12">
+                    Key Features
+                </h2>
+
+                <!-- Feature 1: Image Left, Description Right -->
+                <div class="flex flex-col md:flex-row items-center gap-12 mb-20">
+                    <div class="w-full md:w-1/2">
+                        <img src="https://placehold.co/600x400/E9D7FE/7822BE?text=Feature+1+Image" alt="Feature 1" class="rounded-xl shadow-lg w-full">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h3 class="text-2xl font-bold text-white mb-4">Feature Title 1</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            This feature provides an intelligent automated workflow that streamlines processes and reduces human intervention, ensuring high accuracy and speed. Our custom algorithms are designed to adapt to various operational scenarios.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 2: Image Right, Description Left -->
+                <div class="flex flex-col md:flex-row-reverse items-center gap-12 mb-20">
+                    <div class="w-full md:w-1/2">
+                        <img src="https://placehold.co/600x400/F0F9FF/006BA6?text=Feature+2+Image" alt="Feature 2" class="rounded-xl shadow-lg w-full">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h3 class="text-2xl font-bold text-white mb-4">Feature Title 2</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Our state-of-the-art monitoring dashboard offers real-time data visualization, allowing you to make informed decisions quickly. The user-friendly interface displays critical metrics at a glance.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 3: Image Left, Description Right -->
+                <div class="flex flex-col md:flex-row items-center gap-12 mb-20">
+                    <div class="w-full md:w-1/2">
+                        <img src="https://placehold.co/600x400/FEF0C7/B54708?text=Feature+3+Image" alt="Feature 3" class="rounded-xl shadow-lg w-full">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h3 class="text-2xl font-bold text-white mb-4">Feature Title 3</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            The system is built with a highly modular and scalable architecture, making it easy to integrate with existing infrastructure and expand functionality as your business grows.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 4: Image Right, Description Left -->
+                <div class="flex flex-col md:flex-row-reverse items-center gap-12">
+                    <div class="w-full md:w-1/2">
+                        <img src="https://placehold.co/600x400/F2F4F7/667085?text=Feature+4+Image" alt="Feature 4" class="rounded-xl shadow-lg w-full">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h3 class="text-2xl font-bold text-white mb-4">Feature Title 4</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            We prioritized security by implementing end-to-end encryption and robust authentication protocols to protect your data and ensure system integrity.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="py-20 bg-secondary">
+            <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-12">
+                    Gallery
+                </h2>
+                <!-- Image Gallery -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <img src="https://placehold.co/600x400/1f2937/fff?text=Gallery+Image+1" alt="Gallery Image 1" class="rounded-xl shadow-lg w-full h-auto object-cover transition-transform duration-300 hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E2E8F0/A0AEC0?text=Image+Not+Found';">
+                    <img src="https://placehold.co/600x400/1f2937/fff?text=Gallery+Image+2" alt="Gallery Image 2" class="rounded-xl shadow-lg w-full h-auto object-cover transition-transform duration-300 hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E2E8F0/A0AEC0?text=Image+Not+Found';">
+                    <img src="https://placehold.co/600x400/1f2937/fff?text=Gallery+Image+3" alt="Gallery Image 3" class="rounded-xl shadow-lg w-full h-auto object-cover transition-transform duration-300 hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E2E8F0/A0AEC0?text=Image+Not+Found';">
+                    <img src="https://placehold.co/600x400/1f2937/fff?text=Gallery+Image+4" alt="Gallery Image 4" class="rounded-xl shadow-lg w-full h-auto object-cover transition-transform duration-300 hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E2E8F0/A0AEC0?text=Image+Not+Found';">
+                    <img src="https://placehold.co/600x400/1f2937/fff?text=Gallery+Image+5" alt="Gallery Image 5" class="rounded-xl shadow-lg w-full h-auto object-cover transition-transform duration-300 hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E2E8F0/A0AEC0?text=Image+Not+Found';">
+                    <img src="https://placehold.co/600x400/1f2937/fff?text=Gallery+Image+6" alt="Gallery Image 6" class="rounded-xl shadow-lg w-full h-auto object-cover transition-transform duration-300 hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E2E8F0/A0AEC0?text=Image+Not+Found';">
+                </div>
+
+                <!-- Video Gallery -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="relative overflow-hidden rounded-xl shadow-lg" style="padding-top: 56.25%;">
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="relative overflow-hidden rounded-xl shadow-lg" style="padding-top: 56.25%;">
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/SjV-J2M7HhA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section Start -->
+    <footer class="bg-gray-950 text-white pt-20">
+        <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-72">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-b border-gray-800 pb-4">
+                <!-- Column 1: Company Info -->
+                <div>
+                    <!-- Logo -->
+                    <a href="#" class="flex items-center space-x-2 mb-4">
+                        <img src="images/2.png" alt="Nyza Engineering Logo" class="h-16">
+                    </a>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Revolutionizing robotics and automation with cutting-edge innovation and exceptional engineering expertise from Bangladesh.
+                    </p>
+                    <div class="flex space-x-4 text-xl">
+                        <a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h5 class="text-lg font-bold mb-6">Quick Links</h5>
+                    <ul class="space-y-3">
+                        <!-- Updated quick links to match the new page list -->
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Projects</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Expertise</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Why Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Hire Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Our Expertise (Updated heading) -->
+                <div>
+                    <h5 class="text-lg font-bold mb-6">Our Expertise</h5>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Custom Robotics Development</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">AI-Driven Surveillance</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Automation & Industrial Robotics</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Embedded Systems & IoT</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Smart Agriculture Solutions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Consultation & Research</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact Us -->
+                <div>
+                    <h5 class="text-lg font-bold mb-6">Contact Us</h5>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-center space-x-3">
+                            <svg class="h-5 w-5 text-[rgb(93,168,255)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span>Dhaka, Bangladesh</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="h-5 w-5 text-[rgb(93,168,255)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.293 1.147a1 1 0 00-.464 1.186l.96 1.764a1 1 0 001.21.502l4.493-1.498a1 1 0 011.21-.502l1.147 2.293a1 1 0 001.186.464l1.764-.96a1 1 0 00.502-1.21l-1.498-4.493a1 1 0 01.684-.948H19a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path></svg>
+                            <span>+8801575436196</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="h-5 w-5 text-[rgb(93,168,255)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <span>contact@nyzaengineering.com</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="mt-6 inline-block bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-3 px-8 rounded-md shadow-lg">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+
+            <!-- Copyright and Legal Links -->
+            <div class="text-center py-8">
+                <p class="text-gray-500 text-sm">
+                    © 2025 Nyza Engineering Design. All rights reserved.
+                </p>
+                <div class="mt-2 text-gray-500 text-sm space-x-4">
+                    <a href="#" class="hover:text-[rgb(93,168,255)] transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-[rgb(93,168,255)] transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-[rgb(93,168,255)] transition-colors">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile menu functionality
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
