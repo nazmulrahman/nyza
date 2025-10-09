@@ -26,13 +26,13 @@
 
         /* Custom styles for the expertise cards with background images */
         .card-bg-1 {
-            background-image: url('images/core/hardware.jpg');
+            background-image: url('images/core/card-1.png');
             background-size: cover;
             background-position: center;
         }
 
         .card-bg-2 {
-            background-image: url('images/card-3.jpg');
+            background-image: url('images/core/card-2.png');
             background-size: cover;
             background-position: center;
         }
@@ -319,30 +319,38 @@
 
     <!-- Expertise Highlights Section Start -->
     <section id="expertise-section" class="py-20 bg-gray-900 text-white">
-        <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-72">
+        <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-40">
             <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-16">
                 Our Core Expertise
             </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
                 <!-- Expertise Card 1 -->
                 <div class="relative h-96 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105 overflow-hidden card-bg-1 expertise-card">
-                    <div class="absolute inset-0 bg-gray-900 bg-opacity-80 flex flex-col justify-center items-center p-8 text-center expertise-overlay">
-                        <h3 class="text-2xl font-bold mb-2">Hardware Design and Prototyping</h3>
+                    <div class="absolute inset-0 bg-gray-900 bg-opacity-70 flex flex-col justify-center items-center p-8 text-center expertise-overlay">
+                        <h3 class="text-2xl font-bold mb-2">Concept Ideation & Validation</h3>
                         <p class="text-white">
-                        We provide complete hardware development solutions, combining expertise in CAD modeling, mechanical design, simulation, and PCB development. Our team focuses on creating robust, high-precision prototypes that seamlessly integrate mechanical and electronic systems for reliable real-world performance.
+                        We transform ideas into tangible concepts through sketching, market research, and early validation. Our approach refines innovation by aligning creative design with technical feasibility and real-world needs, ensuring your product vision starts on a solid foundation.
                         </p>
                     </div>
                 </div>
                 <!-- Expertise Card 2 -->
                 <div class="relative h-96 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105 overflow-hidden card-bg-2 expertise-card">
                     <div class="absolute inset-0 bg-gray-900 bg-opacity-70 flex flex-col justify-center items-center p-8 text-center expertise-overlay">
-                        <h3 class="text-2xl font-bold mb-2">Robotics Software</h3>
+                        <h3 class="text-2xl font-bold mb-2">Hardware Design and Prototyping</h3>
                         <p class="text-white">
-                            We develop advanced robotics software using ROS, integrating computer vision, AI, and firmware for intelligent, autonomous systems. From control algorithms to system testing, we ensure every robot operates efficiently, reliably, and with seamless hardware-software integration.
+                            We provide complete hardware development solutions, combining expertise in CAD modeling, mechanical design, simulation, and PCB development. Our team focuses on creating robust, high-precision prototypes that seamlessly integrate mechanical and electronic systems for reliable real-world performance.
                         </p>
                     </div>
                 </div>
-               
+               <!-- Expertise Card 3 -->
+                <div class="relative h-96 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105 overflow-hidden card-bg-3 expertise-card">
+                    <div class="absolute inset-0 bg-gray-900 bg-opacity-70 flex flex-col justify-center items-center p-8 text-center expertise-overlay">
+                        <h3 class="text-2xl font-bold mb-2">Intelligent Systems Integration</h3>
+                        <p class="text-white">
+                            We combine robotics simulation, AI, computer vision, IoT, and engineering analysis to develop smart, efficient systems. Our multidisciplinary expertise bridges digital and physical domains, ensuring high-performance, data-driven, and reliable solutions for modern automation and intelligent products.
+                        </p>
+                    </div>
+                </div>
                
             </div>
         </div>
@@ -351,7 +359,7 @@
 
     <!-- Design Process Section Start -->
     <section id="design-process" class="py-12 md:py-20 bg-gray-900 text-white">
-        <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-72">
+        <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-40">
             <!-- Increased gap for better mobile spacing -->
             <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
                 <!-- Left Column: Process Steps -->
@@ -424,7 +432,7 @@
 
     <!-- Featured Projects Section Start -->
     <section id="projects-section" class="py-12 md:py-20 bg-gray-800 text-white">
-        <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-72">
+        <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-40">
             <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center mb-12 md:mb-16">
                 Featured Projects
             </h2>
@@ -433,38 +441,92 @@
                 <div class="bg-gray-900 rounded-xl shadow-lg flex flex-col md:flex-row items-stretch overflow-hidden">
                     <!-- Text Content - Adjusted padding and font sizes for better mobile view -->
                     <div class="md:w-1/2 p-6 lg:p-12 space-y-3">
-                        <h3 class="text-[rgb(93,168,255)] uppercase tracking-widest text-xs sm:text-sm font-semibold">Industrial Automation</h3>
-                        <h4 class="text-2xl sm:text-3xl font-bold mb-2">Automated Warehouse System</h4>
+                        <h3 class="text-[rgb(93,168,255)] uppercase tracking-widest text-xs sm:text-sm font-semibold">Military Robotics</h3>
+                        <h4 class="text-2xl sm:text-3xl font-bold mb-2">Autonomous Tank Robot</h4>
                         <div>
                             <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">OVERVIEW</h5>
                             <p class="text-gray-300 text-sm leading-relaxed mt-1">
-                                We designed and implemented a fully autonomous robot for sorting and transporting packages in a large-scale warehouse, significantly boosting efficiency.
+                                An advanced autonomous ground robot designed for battlefield operations and surveillance, capable of remote operation from anywhere in the world.
                             </p>
                         </div>
                         <div>
                             <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">PROJECT BRIEF</h5>
                             <p class="text-gray-300 text-sm leading-relaxed mt-1">
-                                Our solution uses advanced computer vision and pathfinding algorithms to significantly boost operational efficiency and reduce human error, with a focus on safety and scalability.
+                                The system integrates ROS2, RTK GPS, LiDAR, 3D cameras, and IMU sensors to enable real-time mapping, navigation, and situational awareness. It supports both indoor and outdoor SLAM for autonomous mobility across complex terrains.
                             </p>
                         </div>
                         <div>
                             <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">ROLE</h5>
                             <p class="text-gray-300 text-sm leading-relaxed mt-1">
-                                Lead Mechanical Engineer, Robotics Programmer
+                                Lead Mechatronics Engineer, Robotics Programmer
                             </p>
                         </div>
                         <div>
                             <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">METHOD</h5>
                             <p class="text-gray-300 text-sm leading-relaxed mt-1">
-                                We followed a modular design approach, with custom CAD models drawn using Fusion 360 and simulations performed to validate the design before physical prototyping.
+                                From mechanical design and prototyping to software development and testing, we handled the entire development cycle. The robot features a modular structure with AI-driven perception, reliable communication, and robust performance across challenging military terrains.
                             </p>
                         </div>
 
                         <!-- Skill Tags -->
                         <div class="flex flex-wrap gap-2 pt-4">
-                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Fusion 360</span>
-                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">CAD</span>
-                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">3D Modeling</span>
+                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">ROS2</span>
+                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">SLAM & Navigation</span>
+                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Computer Vision & AI</span>
+                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Embedded Systems & IOT</span>
+                        </div>
+                        <!-- New button group -->
+                        <div class="flex flex-wrap gap-4 mt-6">
+                            <a href="" class="bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg text-sm inline-block">
+                                View Project Detail
+                            </a>
+                            <a href="projects.html" class="bg-gray-700 hover:bg-gray-600 transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg text-sm inline-block">
+                                See all projects
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Image -->
+                    <div class="md:w-1/2 p-4 md:p-6 flex items-center justify-center m-[28px]">
+                        <img src="https://placehold.co/800x600/1f2937/fff?text=Automated+Warehouse" alt="Automated Warehouse System" class="w-full h-auto object-cover rounded-md">
+                    </div>
+                </div>
+
+                <!-- Project Card 2: Image on Left -->
+                <div class="bg-gray-900 rounded-xl shadow-lg flex flex-col md:flex-row-reverse items-stretch overflow-hidden">
+                    <!-- Text Content - Adjusted padding and font sizes for better mobile view -->
+                    <div class="md:w-1/2 p-6 lg:p-12 space-y-3">
+                        <h3 class="text-[rgb(93,168,255)] uppercase tracking-widest text-xs sm:text-sm font-semibold">Renewable Energy Robotics</h3>
+                        <h4 class="text-2xl sm:text-3xl font-bold mb-2">Solar Panel Cleaning Robot</h4>
+                        <div>
+                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">OVERVIEW</h5>
+                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
+                                An innovative solution was required to climb solar panels without hurting the cleaning brushes.
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">PROJECT BRIEF</h5>
+                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
+                                Designed a mobile robot with all the requirements given by the client and made a lot of modifications based on my experience with robots. All custom parts were built with design for manufacturing considerations.
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">ROLE</h5>
+                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
+                                Lead mechanical designer, Mechanical Designer
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">METHOD</h5>
+                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
+                                After some intensive research, the product concept was developed, and then we tried to list down the off-the-shelf components. The parts were modeled in Fusion 360, and motors, mounts, transmissions, bearings, brackets, and fasteners were gradually selected according to the needs.
+                            </p>
+                        </div>
+
+                        <!-- Skill Tags -->
+                        <div class="flex flex-wrap gap-2 pt-4">
+                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Fusion360</span>
+                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Robotics</span>
+                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Embedded Systems</span>
                             <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Mechanical Design</span>
                         </div>
                         <!-- New button group -->
@@ -478,62 +540,8 @@
                         </div>
                     </div>
                     <!-- Image -->
-                    <div class="md:w-1/2 p-4 md:p-6 flex items-center justify-center">
-                        <img src="https://placehold.co/800x600/1f2937/fff?text=Automated+Warehouse" alt="Automated Warehouse System" class="w-full h-auto object-cover rounded-md">
-                    </div>
-                </div>
-
-                <!-- Project Card 2: Image on Left -->
-                <div class="bg-gray-900 rounded-xl shadow-lg flex flex-col md:flex-row-reverse items-stretch overflow-hidden">
-                    <!-- Text Content - Adjusted padding and font sizes for better mobile view -->
-                    <div class="md:w-1/2 p-6 lg:p-12 space-y-3">
-                        <h3 class="text-[rgb(93,168,255)] uppercase tracking-widest text-xs sm:text-sm font-semibold">Medical Robotics</h3>
-                        <h4 class="text-2xl sm:text-3xl font-bold mb-2">Medical Assistance Robot</h4>
-                        <div>
-                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">OVERVIEW</h5>
-                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
-                                A compact and precise robotic arm for assisting surgeons in delicate procedures.
-                            </p>
-                        </div>
-                        <div>
-                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">PROJECT BRIEF</h5>
-                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
-                                The design prioritizes sterile environments and intuitive controls, allowing for remote operation and a reduction in human error.
-                            </p>
-                        </div>
-                        <div>
-                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">ROLE</h5>
-                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
-                                Senior Mechatronics Engineer, Project Manager
-                            </p>
-                        </div>
-                        <div>
-                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">METHOD</h5>
-                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
-                                We utilized advanced materials and control systems to ensure precision and safety, with a focus on improving patient outcomes and surgical precision.
-                            </p>
-                        </div>
-
-                        <!-- Skill Tags -->
-                        <div class="flex flex-wrap gap-2 pt-4">
-                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">SolidWorks</span>
-                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Robotics</span>
-                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Embedded Systems</span>
-                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Medical Device Design</span>
-                        </div>
-                        <!-- New button group -->
-                        <div class="flex flex-wrap gap-4 mt-6">
-                            <a href="#" class="bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg text-sm inline-block">
-                                View Project Detail
-                            </a>
-                            <a href="#" class="bg-gray-700 hover:bg-gray-600 transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg text-sm inline-block">
-                                See all projects
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Image -->
-                    <div class="md:w-1/2 p-4 md:p-6 flex items-center justify-center">
-                        <img src="https://placehold.co/800x600/1f2937/fff?text=Medical+Assistance" alt="Medical Assistance Robot" class="w-full h-auto object-cover rounded-md">
+                    <div class="md:w-1/2 p-4 md:p-6 flex items-center justify-center m-[28px]">
+                        <img src="images/featured/solar.jpg" alt="Medical Assistance Robot" class="w-full h-auto object-cover rounded-md">
                     </div>
                 </div>
             </div>
@@ -548,7 +556,7 @@
 
     <!-- Client Feedback Section Start -->
     <section id="client-feedback" class="py-20 bg-gray-900 text-white">
-        <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-72">
+        <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-40">
             <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-16">
                 What Our Clients Say
             </h2>

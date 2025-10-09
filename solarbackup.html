@@ -40,7 +40,7 @@
         }
 
         .hero-bg {
-            background-image: url('https://placehold.co/1920x1080/1f2937/fff?text=Project+Hero+Image');
+            background-image: url('images/featured/solar.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -99,10 +99,10 @@
             <!-- Hero Content -->
             <div class="relative z-10 max-w-4xl">
                 <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4">
-                    Our Iconic Project Title
+                    Solar Cleaning Robot
                 </h1>
                 <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8">
-                    A brief, compelling description of the project, highlighting its main goals and impact. This section grabs the visitor's attention and sets the stage for the details to follow.
+                    Designed a mobile robot with all the requirements given by the client and made a lot of modifications based on my experience with robots. All custom parts were built with design for manufacturing considerations.
                 </p>
                 <a href="#details" class="bg-primary hover:bg-accent transition-colors text-white font-bold py-3 px-8 rounded-md shadow-lg">
                     Learn More
@@ -111,98 +111,143 @@
         </section>
 
         <!-- Project Details Section -->
-        <section id="details" class="py-20">
+        <section id="details" class="py-20 bg-gray-800">
             <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-72">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-12">
                     Project Overview
                 </h2>
-                <div class="bg-card p-8 rounded-xl shadow-lg">
+                <div class="bg-card p-8 rounded-xl shadow-lg bg-gray-900">
                     <p class="text-gray-400 text-lg leading-relaxed mb-4">
-                        This project was a comprehensive solution aimed at [Problem]. Our team utilized [Key Technology 1] and [Key Technology 2] to develop a scalable and efficient system that exceeded our client's expectations. The development process involved a deep dive into [Industry-Specific Detail], ensuring that the final product was not only functional but also tailored to the unique needs of the sector.
+                        The Solar Panel Cleaning Robot is a fully functional mobile system engineered to clean solar panels efficiently without causing any surface damage. Designed with precision and care, it can climb and operate on panels at various angles, ensuring effective dust and debris removal while maintaining maximum solar output.
                     </p>
                     <p class="text-gray-400 text-lg leading-relaxed">
-                        Key outcomes of this project include a significant increase in operational efficiency, a reduction in manual error rates, and the creation of a user-friendly interface that has been praised by end-users. This project stands as a testament to our commitment to innovative and practical engineering design.
+                        This robot combines innovative mechanical design with practical field requirements to deliver a durable, lightweight, and easy-to-maintain solution. It significantly reduces the need for manual cleaning, lowers operational costs, and ensures consistent energy production. The system is ideal for large-scale solar farms and commercial rooftop installations in dusty environments.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- Features Showcase Section -->
-        <section class="py-20 bg-gray-800">
+        <!-- Features Showcase Section (with smaller images and more spacing) -->
+        <section class="py-20 bg-gray-900">
             <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-72">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-12">
                     Key Features
                 </h2>
 
                 <!-- Feature 1: Image Left, Description Right -->
-                <div class="flex flex-col md:flex-row items-center gap-12 mb-20">
-                    <div class="w-full md:w-1/2">
-                        <img src="https://placehold.co/600x400/E9D7FE/7822BE?text=Feature+1+Image" alt="Feature 1" class="rounded-xl shadow-lg w-full">
+                <div class="flex flex-col md:flex-row items-center gap-24 py-12">
+                    <!-- Image container -->
+                    <div class="w-full md:w-1/3 flex justify-center">
+                        <div class="w-[400px] h-[300px] overflow-hidden rounded-xl shadow-lg">
+                            <img src="images/projects/solar/Rotatable Push-in L-fitting.png" 
+                                alt="Feature 2" 
+                                class="w-full h-full object-cover object-center">
+                        </div>
                     </div>
-                    <div class="w-full md:w-1/2">
-                        <h3 class="text-2xl font-bold text-white mb-4">Feature Title 1</h3>
+                    <!-- Text container takes 2/3 of the width, with added padding for visual separation -->
+                    <div class="w-full md:w-2/3 md:px-12 lg:px-16">
+                        <h3 class="text-2xl font-bold text-white mb-4">Rotatable Push-in L-fitting</h3>
                         <p class="text-gray-400 leading-relaxed">
-                            This feature provides an intelligent automated workflow that streamlines processes and reduces human intervention, ensuring high accuracy and speed. Our custom algorithms are designed to adapt to various operational scenarios.
+                            Ensures free rotation of the water supply pipe, preventing kinks. This guarantees continuous water flow for efficient wet cleaning, adapting to panel angles without hindering the robot's smooth operation. 
                         </p>
                     </div>
                 </div>
 
                 <!-- Feature 2: Image Right, Description Left -->
-                <div class="flex flex-col md:flex-row-reverse items-center gap-12 mb-20">
-                    <div class="w-full md:w-1/2">
-                        <img src="https://placehold.co/600x400/F0F9FF/006BA6?text=Feature+2+Image" alt="Feature 2" class="rounded-xl shadow-lg w-full">
+                <div class="flex flex-col md:flex-row-reverse items-center gap-24 py-12">
+                    <!-- Image container -->
+                    <div class="w-full md:w-1/3 flex justify-center">
+                        <div class="w-[400px] h-[300px] overflow-hidden rounded-xl shadow-lg">
+                            <img src="images/projects/solar/Linear Actuator.png" 
+                                alt="Feature 2" 
+                                class="w-full h-full object-cover object-center">
+                        </div>
                     </div>
-                    <div class="w-full md:w-1/2">
-                        <h3 class="text-2xl font-bold text-white mb-4">Feature Title 2</h3>
+
+                    <!-- Text container -->
+                    <div class="w-full md:w-2/3 md:px-12 lg:px-16">
+                        <h3 class="text-2xl font-bold text-white mb-4">Linear Actuator</h3>
                         <p class="text-gray-400 leading-relaxed">
-                            Our state-of-the-art monitoring dashboard offers real-time data visualization, allowing you to make informed decisions quickly. The user-friendly interface displays critical metrics at a glance.
+                            Precisely lifts cleaning brushes, allowing tracks to climb over panel edges and obstacles. This prevents damage to brushes and panels, ensuring versatile, safe navigation on varied solar installations.
                         </p>
                     </div>
                 </div>
+
 
                 <!-- Feature 3: Image Left, Description Right -->
-                <div class="flex flex-col md:flex-row items-center gap-12 mb-20">
-                    <div class="w-full md:w-1/2">
-                        <img src="https://placehold.co/600x400/FEF0C7/B54708?text=Feature+3+Image" alt="Feature 3" class="rounded-xl shadow-lg w-full">
+                <div class="flex flex-col md:flex-row items-center gap-24 py-12">
+                    <!-- Image container -->
+                    <div class="w-full md:w-1/3 flex justify-center">
+                        <div class="w-[400px] h-[300px] overflow-hidden rounded-xl shadow-lg">
+                            <img src="images/projects/solar/BLDC Motor.png" 
+                                alt="Feature 2" 
+                                class="w-full h-full object-cover object-center">
+                        </div>
                     </div>
-                    <div class="w-full md:w-1/2">
-                        <h3 class="text-2xl font-bold text-white mb-4">Feature Title 3</h3>
+                    <!-- Text container takes 2/3 of the width, with added padding for visual separation -->
+                    <div class="w-full md:w-2/3 md:px-12 lg:px-16">
+                        <h3 class="text-2xl font-bold text-white mb-4">BLDC Motor coupled with a shaft and belt-pulley</h3>
                         <p class="text-gray-400 leading-relaxed">
-                            The system is built with a highly modular and scalable architecture, making it easy to integrate with existing infrastructure and expand functionality as your business grows.
+                            Efficiently rotates cleaning brushes with consistent power. This optimizes debris removal, ensuring high-performance cleaning, durability, and energy efficiency for the robot's extended operation.
                         </p>
                     </div>
                 </div>
-
-                <!-- Feature 4: Image Right, Description Left -->
-                <div class="flex flex-col md:flex-row-reverse items-center gap-12">
-                    <div class="w-full md:w-1/2">
-                        <img src="https://placehold.co/600x400/F2F4F7/667085?text=Feature+4+Image" alt="Feature 4" class="rounded-xl shadow-lg w-full">
-                    </div>
-                    <div class="w-full md:w-1/2">
-                        <h3 class="text-2xl font-bold text-white mb-4">Feature Title 4</h3>
-                        <p class="text-gray-400 leading-relaxed">
-                            We prioritized security by implementing end-to-end encryption and robust authentication protocols to protect your data and ensure system integrity.
-                        </p>
-                    </div>
-                </div>
+                
             </div>
         </section>
 
         <!-- Gallery Section -->
-        <section class="py-20 bg-secondary">
+        <section class="py-20 bg-secondary bg-gray-800">
             <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-12">
                     Gallery
                 </h2>
                 <!-- Image Gallery -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                    <img src="https://placehold.co/600x400/1f2937/fff?text=Gallery+Image+1" alt="Gallery Image 1" class="rounded-xl shadow-lg w-full h-auto object-cover transition-transform duration-300 hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E2E8F0/A0AEC0?text=Image+Not+Found';">
-                    <img src="https://placehold.co/600x400/1f2937/fff?text=Gallery+Image+2" alt="Gallery Image 2" class="rounded-xl shadow-lg w-full h-auto object-cover transition-transform duration-300 hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E2E8F0/A0AEC0?text=Image+Not+Found';">
-                    <img src="https://placehold.co/600x400/1f2937/fff?text=Gallery+Image+3" alt="Gallery Image 3" class="rounded-xl shadow-lg w-full h-auto object-cover transition-transform duration-300 hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E2E8F0/A0AEC0?text=Image+Not+Found';">
-                    <img src="https://placehold.co/600x400/1f2937/fff?text=Gallery+Image+4" alt="Gallery Image 4" class="rounded-xl shadow-lg w-full h-auto object-cover transition-transform duration-300 hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E2E8F0/A0AEC0?text=Image+Not+Found';">
-                    <img src="https://placehold.co/600x400/1f2937/fff?text=Gallery+Image+5" alt="Gallery Image 5" class="rounded-xl shadow-lg w-full h-auto object-cover transition-transform duration-300 hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E2E8F0/A0AEC0?text=Image+Not+Found';">
-                    <img src="https://placehold.co/600x400/1f2937/fff?text=Gallery+Image+6" alt="Gallery Image 6" class="rounded-xl shadow-lg w-full h-auto object-cover transition-transform duration-300 hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E2E8F0/A0AEC0?text=Image+Not+Found';">
+                    <!-- Gallery Item -->
+                    <div class="w-full aspect-[16/9] overflow-hidden rounded-xl shadow-lg">
+                        <img src="images/projects/solar/3.jpg" 
+                            alt="Gallery Image 1" 
+                            class="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-105" 
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/E2E8F0/A0AEC0?text=Image+Not+Found';">
+                    </div>
+
+                    <div class="w-full aspect-[16/9] overflow-hidden rounded-xl shadow-lg">
+                        <img src="images/projects/solar/1.png" 
+                            alt="Gallery Image 2" 
+                            class="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-105" 
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/E2E8F0/A0AEC0?text=Image+Not+Found';">
+                    </div>
+
+                    <div class="w-full aspect-[16/9] overflow-hidden rounded-xl shadow-lg">
+                        <img src="images/projects/solar/2.jpg" 
+                            alt="Gallery Image 3" 
+                            class="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-105" 
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/E2E8F0/A0AEC0?text=Image+Not+Found';">
+                    </div>
+
+                    <div class="w-full aspect-[16/9] overflow-hidden rounded-xl shadow-lg">
+                        <img src="images/projects/solar/1.jpg" 
+                            alt="Gallery Image 4" 
+                            class="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-105" 
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/E2E8F0/A0AEC0?text=Image+Not+Found';">
+                    </div>
+
+                    <div class="w-full aspect-[16/9] overflow-hidden rounded-xl shadow-lg">
+                        <img src="images/projects/solar/Rotatable Push-in L-fitting.png" 
+                            alt="Gallery Image 5" 
+                            class="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-105" 
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/E2E8F0/A0AEC0?text=Image+Not+Found';">
+                    </div>
+
+                    <div class="w-full aspect-[16/9] overflow-hidden rounded-xl shadow-lg">
+                        <img src="images/projects/solar/Linear Actuator.png" 
+                            alt="Gallery Image 6" 
+                            class="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-105" 
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/E2E8F0/A0AEC0?text=Image+Not+Found';">
+                    </div>
                 </div>
+
 
                 <!-- Video Gallery -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
