@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyza Engineering Design - Skeleton Page</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font import for a professional look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0e14; /* Dark background to match the image */
+            min-height: 100vh; /* Ensure the body takes up full viewport height */
+            display: flex;
+            flex-direction: column; /* Allows footer to be pushed to the bottom */
+        }
+
+        /* Keyframes for the gentle floating up and down animation */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(0.2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        /* Custom styles for the testimonial carousel layout */
+        .testimonial-slide-wrapper {
+            /* On desktop, slides are 400px wide */
+            width: 100%;
+            padding: 0 1rem; /* Padding for mobile view */
+        }
+        @media (min-width: 1024px) {
+            .testimonial-slide-wrapper {
+                width: 400px;
+                flex-shrink: 0;
+            }
+        }
+        
+        .testimonial-card-transition {
+            transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth transition */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section Start (KEEP) -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-gray-600 bg-opacity-40 backdrop-filter backdrop-blur-sm shadow-md">
+        <nav class="max-w-8xl mx-auto flex justify-between items-center px-6 md:px-12 lg:px-48 h-16">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-2">
+                <img src="images/2.png" alt="Nyza Engineering Logo" class="h-16">
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex items-center space-x-8 text-white">
+                <a href="index.html" class="font-medium hover:text-[rgb(93,168,255)] transition-colors">Home</a>
+                <a href="projects.html" class="font-medium hover:text-[rgb(93,168,255)] transition-colors">Projects</a>
+                <a href="expertise.html" class="font-medium hover:text-[rgb(93,168,255)] transition-colors">Expertise</a>
+                <a href="whyUs.html" class="font-medium hover:text-[rgb(93,168,255)] transition-colors">Why Us</a>
+                <button class="bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg">
+                    HIRE US
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 bg-opacity-90 backdrop-filter backdrop-blur-sm shadow-lg">
+            <div class="flex flex-col items-center py-4 space-y-4 text-white">
+                <a href="index.html" class="font-medium text-lg hover:text-[rgb(93,168,255)] transition-colors w-full text-center py-2">Home</a>
+                <a href="projects.html" class="font-medium text-lg hover:text-[rgb(93,168,255)] transition-colors w-full text-center py-2">Projects</a>
+                <a href="expertise.html" class="font-medium text-lg hover:text-[rgb(93,168,255)] transition-colors w-full text-center py-2">Expertise</a>
+                <a href="#" class="font-medium text-lg hover:text-[rgb(93,168,255)] transition-colors w-full text-center py-2">Why Us</a>
+                <button class="bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg w-auto">
+                    HIRE US
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Main Content Area -->
+    <main class="flex-grow pt-24 pb-12">
+        <!-- "Why Choose Us?" Section Start -->
+        <section id="why-choose-us" class="py-12 md:py-2">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <!-- Title and descriptive text block -->
+                <div class="mb-12">
+                    <h2 class="text-4xl font-extrabold text-white mb-4">Why Choose Us?</h2>
+                    <p class="text-lg text-gray-400 max-w-4xl leading-relaxed">
+                        Discover the core reasons clients choose Nyza Engineering Design for their robotics, automation, and embedded systems needs. We combine innovation with reliability to deliver exceptional results.
+                    </p>
+                </div>
+
+                <!-- Main Content Grid (Responsive: Videos on left, Cards on right) -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    
+                    <!-- Left Column: Embedded Videos -->
+                    <div class="space-y-6">
+                        <!-- Video 1 Placeholder (Example YouTube Embed) -->
+                        <div class="aspect-video bg-gray-800 rounded-xl shadow-2xl overflow-hidden">
+                            <iframe 
+                                src="https://www.youtube.com/watch?v=nzflOKnVsNs&pp=ugUHEgVlbi1BVQ%3D%3D" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen 
+                                class="w-full h-full"
+                                title="Placeholder Video 1">
+                            </iframe>
+                        </div>
+                        <!-- Video 2 Placeholder (Example YouTube Embed) -->
+                        <div class="aspect-video bg-gray-800 rounded-xl shadow-2xl overflow-hidden">
+                            <iframe 
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen 
+                                class="w-full h-full"
+                                title="Placeholder Video 2">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Feature Cards with Icons & Descriptions -->
+                    <div class="space-y-6">
+                        
+                        <!-- Card 1: Upwork & Toptal Presence -->
+                        <a href="#verified-presence-detail" class="p-6">
+                            <div class="p-6 bg-gray-900 rounded-xl shadow-xl border border-gray-800 flex space-x-4 items-start hover:border-[rgb(93,168,255)] transition duration-300 cursor-pointer">
+                            <!-- SVG Icon for Professional Presence -->
+                            <svg class="h-8 w-8 text-[rgb(93,168,255)] flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-1.258-8.455-3.328A1.996 1.996 0 002.5 14v1a1 1 0 001 1h16a1 1 0 001-1v-1a1.996 1.996 0 00-.5-1.745zM12 9a2 2 0 100 4 2 2 0 000-4z" />
+                            </svg>
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-2">Verified Professional Presence</h4>
+                                <p class="text-gray-400 text-sm">
+                                    Trusted top-tier engineers with a strong, verified presence on leading global freelancing platforms like Upwork and Toptal.
+                                </p>
+                            </div>
+                        </div>
+                        </a>
+
+                        <!-- Card 2: Client Testimonials -->
+                        <a href="#client-feedback" class="p-6">
+                            <div class="p-6 bg-gray-900 rounded-xl shadow-xl border border-gray-800 flex space-x-4 items-start hover:border-[rgb(93,168,255)] transition duration-300 cursor-pointer">
+                            <!-- SVG Icon for Testimonials -->
+                            <svg class="h-8 w-8 text-[rgb(93,168,255)] flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.975 2.888a1 1 0 00-.363 1.118l1.519 4.674c.3.921-.755 1.688-1.538 1.118l-3.975-2.888a1 1 0 00-1.176 0l-3.975 2.888c-.783.57-1.838-.197-1.538-1.118l1.519-4.674a1 1 0 00-.363-1.118L2.923 10.1c-.783-.57-.381-1.81.588-1.81h4.915a1 1 0 00.95-.69l1.519-4.674z" />
+                            </svg>
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-2">Exceptional Client Testimonials</h4>
+                                <p class="text-gray-400 text-sm">
+                                    Our work speaks for itself through glowing reviews and long-term partnerships with satisfied clients worldwide.
+                                </p>
+                            </div>
+                        </div>
+                        </a>
+
+                        <!-- Card 3: Tailored Solutions -->
+                        <a href="#tailored-solutions-detail" class="p-6">
+                            <div class="p-6 bg-gray-900 rounded-xl shadow-xl border border-gray-800 flex space-x-4 items-start hover:border-[rgb(93,168,255)] transition duration-300 cursor-pointer">
+                            <!-- SVG Icon for Tailored Solutions -->
+                            <svg class="h-8 w-8 text-[rgb(93,168,255)] flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                            </svg>
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-2">Custom Tailored Solutions</h4>
+                                <p class="text-gray-400 text-sm">
+                                    We don't believe in one-size-fits-all. Our solutions are custom-designed to perfectly meet your unique project requirements.
+                                </p>
+                            </div>
+                        </div>
+                        </a>
+
+                        <!-- Card 4: Reasonable Price -->
+                        <a href="#pricing-detail" class="p-6">
+                            <div class="p-6 bg-gray-900 rounded-xl shadow-xl border border-gray-800 flex space-x-4 items-start hover:border-[rgb(93,168,255)] transition duration-300 cursor-pointer">
+                            <!-- SVG Icon for Reasonable Price -->
+                            <svg class="h-8 w-8 text-[rgb(93,168,255)] flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V3m0 2v3m0 2c-1.11 0-2.08-.402-2.599-1M12 12V9m0 2c-1.11 0-2.08-.402-2.599 1M12 12H9.25M12 12h2.75M12 15v3m0 2v3m0-3c1.11 0 2.08-.402 2.599-1M12 15H9.25M12 15h2.75" />
+                            </svg>
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-2">Competitive & Transparent Pricing</h4>
+                                <p class="text-gray-400 text-sm">
+                                    Receive premium engineering services without breaking the bank. Our pricing is fair, transparent, and value-driven.
+                                </p>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- "Why Choose Us?" Section End -->
+
+        <!-- NEW SECTION: Verified Professional Presence (Detail) Start -->
+        <section id="verified-presence-detail" class="py-16 md:py-28 bg-gray-950">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+                    <!-- Left Column: Detailed Text -->
+                    <div class="lg:col-span-2">
+                        <h2 class="text-4xl font-extrabold text-white mb-4">Our Elite Status: Global Vetting & Expertise</h2>
+                        <p class="text-xl text-gray-400 mb-6">
+                            Choosing Nyza means opting for proven excellence validated by the world's most trusted platforms for engineering and technology.
+                        </p>
+                        <ul class="space-y-6 text-gray-400">
+                            <li class="flex items-start space-x-3">
+                                <svg class="h-6 w-6 text-green-400 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <div>
+                                    <h4 class="text-2xl font-semibold text-white mb-1">Upwork Top Rated Plus Agency</h4>
+                                    <p class="text-lg">This status is exclusive to the **top 3%** of agencies on Upwork. It signifies a long-standing history of delivering large, complex projects on time, within budget, and consistently receiving 5-star feedback from global clients.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <svg class="h-6 w-6 text-blue-400 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.083 2.083-2.083 2.083M18 9a2 2 0 00-2-2h-3a2 2 0 00-2 2v2a2 2 0 002 2h3a2 2 0 002-2V9zM7 17a2 2 0 00-2-2H2a2 2 0 00-2 2v2a2 2 0 002 2h3a2 2 0 002-2v-2z" />
+                                </svg>
+                                <div>
+                                    <h4 class="text-2xl font-semibold text-white mb-1">Toptal Vetted Talent</h4>
+                                    <p class="text-lg">Our engineers have successfully navigated Toptal's demanding screening process, which identifies the **top 3%** of freelancers worldwide. This ensures you're working with elite technical minds capable of tackling complex, high-stakes engineering challenges.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Right Column: Visual Trust Badges (Placeholder Logos) -->
+                    <div class="lg:col-span-1 flex flex-col space-y-8 p-8 bg-gray-900 rounded-xl shadow-2xl border border-gray-800 h-full justify-around">
+                        <h3 class="text-2xl font-bold text-[rgb(93,168,255)] text-center border-b border-gray-700 pb-4">Trusted by the Best Platforms</h3>
+                        
+                        <!-- Badge 1: Upwork Logo Placeholder -->
+                        <div class="w-full p-4 bg-gray-800 rounded-lg flex flex-col items-center justify-center transition duration-300 hover:scale-[1.05] cursor-pointer">
+                            <img src="images/logos/upwork.png" alt="Upwork Logo Placeholder" class="mb-3 rounded-md w-36">
+                            <p class="text-base text-green-400 font-bold">TOP RATED PLUS</p>
+                        </div>
+
+                        <!-- Badge 2: Toptal Logo Placeholder -->
+                        <div class="w-full p-4 bg-gray-800 rounded-lg flex flex-col items-center justify-center transition duration-300 hover:scale-[1.05] cursor-pointer">
+                            <img src="images/logos/toptal.png" alt="Toptal Logo Placeholder" class="mb-3 rounded-md w-36">
+                            <p class="text-base text-blue-400 font-bold">VETTED ENGINEER</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- NEW SECTION: Verified Professional Presence (Detail) End -->
+
+        <!-- NEW SECTION: Client Testimonials Carousel Start -->
+        <section id="client-feedback" class="py-20 bg-gray-900 text-white">
+        <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-40">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-16">
+                What Our Clients Say
+            </h2>
+
+            <div class="relative w-full overflow-hidden">
+                <!-- Carousel track for the cards -->
+                <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out">
+                    <!-- Testimonial Card 1 -->
+                    <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4">
+                        <div class="bg-gray-800 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center h-full">
+                            <img src="images/Home/Clients/Eric newman.jpg" alt="Client 1" class="w-32 h-32 rounded-full mb-6 object-cover aspect-square border-4 border-[rgb(93,168,255)]">
+                            <h4 class="text-xl font-bold mb-1">Eric Newman</h4>
+                            <p class="text-base text-gray-400 font-medium mb-4">Director of Merl Inc Engineering </p>
+                            <p class="text-base text-gray-300 leading-relaxed mb-6">
+                               "Fayshal was exceptional from start to finish. Communication was spot on and he was very easy to deal with. His mechanical designing and FEA simulation expertise accelerated the whole product development life cycle. I like his Professionalism."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 2 -->
+                    <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4">
+                        <div class="bg-gray-800 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center h-full">
+                            <img src="images/Home/Clients/Dr. Xavier Kohl.jpg" alt="Client 2" class="w-32 h-32 rounded-full mb-6 object-cover aspect-square border-4 border-[rgb(93,168,255)]">
+                            <h4 class="text-xl font-bold mb-1">Dr. Xavier Kohl</h4>
+                            <p class="text-base text-gray-400 font-medium mb-4">CTO @Circuli-ion</p>
+                            <p class="text-base text-gray-300 leading-relaxed mb-6">
+                                "Delivered On time. Quality of work exceeded expectations."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Card 3 -->
+                    <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4">
+                        <div class="bg-gray-800 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center h-full">
+                            <img src="images/Home/Clients/Bradley Pallister.jpg" alt="Client 3" class="w-32 h-32 rounded-full mb-6 object-cover aspect-square border-4 border-[rgb(93,168,255)]">
+                            <h4 class="text-xl font-bold mb-1">Bradley Pallister</h4>
+                            <p class="text-base text-gray-400 font-medium mb-4">Head of Innovation, Innovolo</p>
+                            <p class="text-base text-gray-300 leading-relaxed mb-6">
+                                "Incredibly fast responses and excellent work!"
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Testimonial Card 4 -->
+                    <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4">
+                        <div class="bg-gray-800 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center h-full">
+                            <img src="images/Home/Clients/Salam sleem.jpg" alt="Client 4" class="w-32 h-32 rounded-full mb-6 object-cover aspect-square border-4 border-[rgb(93,168,255)]">
+                            <h4 class="text-xl font-bold mb-1">Salam Sleem</h4>
+                            <p class="text-base text-gray-400 font-medium mb-4">Mechatronics Engineer Enova Group</p>
+                            <p class="text-base text-gray-300 leading-relaxed mb-6">
+                                " He delivered great work and I enjoyed working with him. His communication was top-notch and his skills were reasonably strong"
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Testimonial Card 5 -->
+                    <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4">
+                        <div class="bg-gray-800 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center h-full">
+                            <img src="images/Home/Clients/Stephen Les Lyons.jpg" alt="Client 5" class="w-32 h-32 rounded-full mb-6 object-cover aspect-square border-4 border-[rgb(93,168,255)]">
+                            <h4 class="text-xl font-bold mb-1">Stephen Les Lyons</h4>
+                            <p class="text-base text-gray-400 font-medium mb-4">Director of Operations Windsocks Australia</p>
+                            <p class="text-base text-gray-300 leading-relaxed mb-6">
+                                "He was clearly very skilled in 3D and 2D modelling. I was impressed by his ability to quickly grasp the nature of what we needed, they came back with relevant questions and was very easy to deal with. Thank you."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carousel Navigation Buttons -->
+                <button id="prev-button" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-[rgb(93,168,255)] transition-colors hidden md:block">
+                    &lt;
+                </button>
+                <button id="next-button" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-[rgb(93,168,255)] transition-colors hidden md:block">
+                    &gt;
+                </button>
+            </div>
+        </div>
+    </section>
+        <!-- NEW SECTION: Client Testimonials Carousel End -->
+
+<!-- SECTION: Tailored Solutions Detail Start -->
+    <section id="tailored-solutions-detail" class="py-16 md:py-28 bg-[#0d0e14]">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+                <!-- Right Column: Visual Process Flow Placeholder (Moved to right for variation) -->
+                <div class="lg:col-span-1 flex flex-col space-y-8 p-8 bg-gray-900 rounded-xl shadow-2xl border border-gray-800 h-full justify-around order-last lg:order-first">
+                    <h3 class="text-2xl font-bold text-[rgb(93,168,255)] text-center border-b border-gray-700 pb-4">Our Collaborative Process</h3>
+                    <div class="space-y-4">
+                        <div class="p-3 bg-gray-800 rounded-lg text-center text-white">1. Discovery & Analysis</div>
+                        <div class="text-[rgb(93,168,255)] text-center font-bold">↓</div>
+                        <div class="p-3 bg-gray-800 rounded-lg text-center text-white">2. Prototyping & Iteration</div>
+                        <div class="text-[rgb(93,168,255)] text-center font-bold">↓</div>
+                        <div class="p-3 bg-gray-800 rounded-lg text-center text-white">3. Development & Testing</div>
+                        <div class="text-[rgb(93,168,255)] text-center font-bold">↓</div>
+                        <div class="p-3 bg-gray-800 rounded-lg text-center text-white">4. Deployment & Support</div>
+                    </div>
+                </div>
+
+                <!-- Left Column: Detailed Text -->
+                <div class="lg:col-span-2 order-first lg:order-last">
+                    <h2 class="text-4xl font-extrabold text-white mb-4">Tailored Solutions: Engineering for Your Exact Needs</h2>
+                    <p class="text-xl text-gray-400 mb-6">
+                        Generic solutions deliver generic results. We embed ourselves in your specific challenge to engineer systems that integrate seamlessly and perform optimally.
+                    </p>
+                    <ul class="space-y-6 text-gray-400">
+                        <li class="flex items-start space-x-3">
+                            <svg class="h-6 w-6 text-pink-400 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                            </svg>
+                            <div>
+                                <h4 class="text-2xl font-semibold text-white mb-1">Bespoke Hardware & Firmware</h4>
+                                <p class="text-lg">We design unique PCBs, custom sensors, and specialized firmware from the ground up to match the precise environmental and performance demands of your project.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="h-6 w-6 text-teal-400 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                            <div>
+                                <h4 class="text-2xl font-semibold text-white mb-1">Full IP Ownership Guarantee</h4>
+                                <p class="text-lg">When the project is complete, you retain 100% of the intellectual property (IP). Your unique design and code are exclusively yours, guaranteed in writing.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SECTION: Tailored Solutions Detail End -->
+
+    <!-- SECTION: Reasonable Pricing Detail Start -->
+    <section id="pricing-detail" class="py-16 md:py-28 bg-gray-950">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+                <!-- Left Column: Detailed Text -->
+                <div class="lg:col-span-2">
+                    <h2 class="text-4xl font-extrabold text-white mb-4">Reasonable Pricing: High Value, Transparent Cost</h2>
+                    <p class="text-xl text-gray-400 mb-6">
+                        We deliver world-class engineering expertise at highly competitive rates, maximizing your return on investment without compromising quality.
+                    </p>
+                    <ul class="space-y-6 text-gray-400">
+                        <li class="flex items-start space-x-3">
+                            <svg class="h-6 w-6 text-orange-400 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V3m0 2v3m0 2c-1.11 0-2.08-.402-2.599-1M12 12V9m0 2c-1.11 0-2.08-.402-2.599 1M12 12H9.25M12 12h2.75M12 15v3m0 2v3m0-3c1.11 0 2.08-.402 2.599-1M12 15H9.25M12 15h2.75" />
+                            </svg>
+                            <div>
+                                <h4 class="text-2xl font-semibold text-white mb-1">Value-Driven Rate Structure</h4>
+                                <p class="text-lg">Access a pool of specialized talent at a more efficient cost base compared to local Western firms, translating into significant budget savings for your R&D.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="h-6 w-6 text-red-400 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                            </svg>
+                            <div>
+                                <h4 class="text-2xl font-semibold text-white mb-1">No Hidden Fees or Surprises</h4>
+                                <p class="text-lg">Our pricing model is completely transparent, covering engineering time, project management, and quality assurance. You'll know the cost upfront, every time.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Right Column: Visual Call-to-Action / Meeting Booking (UPDATED BLOCK) -->
+                <div class="lg:col-span-1 flex flex-col space-y-8 p-8 bg-gray-900 rounded-xl shadow-2xl border border-gray-800 h-full justify-around">
+                    <h3 class="text-2xl font-bold text-white text-center border-b border-gray-700 pb-4">Book Your Discovery Meeting</h3>
+                    
+                    <div class="text-center">
+                        <!-- Focus on time for the meeting slot -->
+                        <p class="text-5xl font-extrabold text-[rgb(93,168,255)] mb-2">30 Min</p> 
+                        <p class="text-xl text-gray-400">Initial Project Scoping Call</p>
+                    </div>
+
+                    <ul class="space-y-3 text-gray-400 text-center">
+                        <li class="flex items-center justify-center space-x-2">
+                            <!-- Calendar Icon -->
+                            <svg class="h-5 w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h.01M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                            <span>Seamless booking via **Calendly**</span>
+                        </li>
+                        <li class="flex items-center justify-center space-x-2">
+                            <!-- Phone Icon -->
+                            <svg class="h-5 w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.293 1.147a1 1 0 00-.464 1.186l.96 1.764a1 1 0 001.21.502l4.493-1.498a1 1 0 011.21-.502l1.147 2.293a1 1 0 001.186.464l1.764-.96a1 1 0 00.502-1.21l-1.498-4.493a1 1 0 01.684-.948H19a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" /></svg>
+                            <span>Discuss goals and technical scope</span>
+                        </li>
+                    </ul>
+                    <a href="https://calendly.com/nyza-engineering/discovery-call" target="_blank" class="w-full text-center bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-3 px-6 rounded-md shadow-lg">
+                        Schedule Discovery Call
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SECTION: Reasonable Pricing Detail End -->
+        
+    </main>
+    <!-- Footer Section Start (KEEP) -->
+    <footer class="bg-gray-950 text-white pt-20 mt-auto">
+        <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-72">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-b border-gray-800 pb-4">
+                <!-- Column 1: Company Info -->
+                <div>
+                    <!-- Logo -->
+                    <a href="#" class="flex items-center space-x-2 mb-4">
+                        <img src="images/2.png" alt="Nyza Engineering Logo" class="h-16">
+                    </a>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Revolutionizing robotics and automation with cutting-edge innovation and exceptional engineering expertise from Bangladesh.
+                    </p>
+                    <div class="flex space-x-4 text-xl">
+                        <!-- Font Awesome icons will be loaded by the script below -->
+                        <a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h5 class="text-lg font-bold mb-6">Quick Links</h5>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Projects</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Expertise</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Why Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Hire Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Our Expertise -->
+                <div>
+                    <h5 class="text-lg font-bold mb-6">Our Expertise</h5>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Custom Robotics Development</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">AI-Driven Surveillance</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Automation & Industrial Robotics</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Embedded Systems & IoT</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Smart Agriculture Solutions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Consultation & Research</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact Us -->
+                <div>
+                    <h5 class="text-lg font-bold mb-6">Contact Us</h5>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-center space-x-3">
+                            <svg class="h-5 w-5 text-[rgb(93,168,255)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span>Dhaka, Bangladesh</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="h-5 w-5 text-[rgb(93,168,255)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.293 1.147a1 1 0 00-.464 1.186l.96 1.764a1 1 0 001.21.502l4.493-1.498a1 1 0 011.21-.502l1.147 2.293a1 1 0 001.186.464l1.764-.96a1 1 0 00.502-1.21l-1.498-4.493a1 1 0 01.684-.948H19a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path></svg>
+                            <span>+8801575436196</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="h-5 w-5 text-[rgb(93,168,255)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <span>contact@nyzaengineering.com</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="mt-6 inline-block bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-3 px-8 rounded-md shadow-lg">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+
+            <!-- Copyright and Legal Links -->
+            <div class="text-center py-8">
+                <p class="text-gray-500 text-sm">
+                    © 2025 Nyza Engineering Design. All rights reserved.
+                </p>
+                <div class="mt-2 text-gray-500 text-sm space-x-4">
+                    <a href="#" class="hover:text-[rgb(93,168,255)] transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-[rgb(93,168,255)] transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-[rgb(93,168,255)] transition-colors">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <script>
+        // Testimonial data for the carousel
+        document.addEventListener('DOMContentLoaded', () => {
+            const carouselTrack = document.getElementById('carousel-track');
+            const prevButton = document.getElementById('prev-button');
+            const nextButton = document.getElementById('next-button');
+            const totalCards = carouselTrack.children.length;
+            let currentCardIndex = 0;
+            let slideInterval;
+
+            function getVisibleSlides() {
+                if (window.innerWidth >= 1024) return 3;
+                if (window.innerWidth >= 768) return 2;
+                return 1;
+            }
+
+            function updateCarousel() {
+                const visibleSlides = getVisibleSlides();
+                const totalSlides = totalCards - visibleSlides;
+                if (currentCardIndex > totalSlides) {
+                    currentCardIndex = totalSlides;
+                }
+                const cardWidthPercentage = 100 / visibleSlides;
+                carouselTrack.style.transform = `translateX(-${currentCardIndex * cardWidthPercentage}%)`;
+            }
+
+            function startAutoplay() {
+                stopAutoplay(); // Clear any existing interval
+                slideInterval = setInterval(() => {
+                    const visibleSlides = getVisibleSlides();
+                    const totalSlides = totalCards - visibleSlides;
+                    currentCardIndex = (currentCardIndex + 1);
+                    if (currentCardIndex > totalSlides) {
+                        currentCardIndex = 0; // Loop back to the start
+                    }
+                    updateCarousel();
+                }, 3000); // Change slide every 3 seconds
+            }
+
+            function stopAutoplay() {
+                clearInterval(slideInterval);
+            }
+
+            nextButton.addEventListener('click', () => {
+                stopAutoplay();
+                const visibleSlides = getVisibleSlides();
+                const totalSlides = totalCards - visibleSlides;
+                if (currentCardIndex < totalSlides) {
+                    currentCardIndex++;
+                }
+                updateCarousel();
+                startAutoplay();
+            });
+
+            prevButton.addEventListener('click', () => {
+                stopAutoplay();
+                if (currentCardIndex > 0) {
+                    currentCardIndex--;
+                } else {
+                    const visibleSlides = getVisibleSlides();
+                    const totalSlides = totalCards - visibleSlides;
+                    currentCardIndex = totalSlides; // Loop to the end
+                }
+                updateCarousel();
+                startAutoplay();
+            });
+
+            // Adjust carousel on resize
+            window.addEventListener('resize', () => {
+                stopAutoplay();
+                currentCardIndex = 0; // Reset to the beginning on resize
+                updateCarousel();
+                startAutoplay();
+            });
+
+            // Start autoplay initially
+            startAutoplay();
+
+            // Mobile menu functionality
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+    <!-- Social icons used in the footer -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

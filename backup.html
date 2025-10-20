@@ -1,610 +1,315 @@
-<!-- This is the complete HTML document for the homepage, now with a fully responsive navigation bar. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nyza Engineering Design</title>
-    <!-- Tailwind CSS CDN for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+
     <style>
-        /* Custom font import for a professional look */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0d0e14; /* Dark background to match the image */
-        }
+        @import url(https://fonts.bunny.net/css?family=jura:300,500);
+@layer base, demo;
 
-        /* Hero section specific styles to handle the background image */
-        .hero-bg {
-            background-image: url('hero.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; /* Parallax effect */
-        }
+@layer demo {
 
-        /* Custom styles for the expertise cards with background images */
-        .card-bg-1 {
-            background-image: url('https://placehold.co/800x600/1f2937/fff?text=Industrial+Automation');
-            background-size: cover;
-            background-position: center;
-        }
+.carousel{
+	/* prev & next buttons */
+  --nav-btn-size: 40px;
+  --nav-btn-bg: rgb(15, 23, 43);
+  --nav-btn-txt: white;
+  
+	/* item markers */
+  --nav-marker-bg: 20px;
+  --nav-marker-bg: rgb(15, 23, 43);
+  
+  width: min(calc(100% - 2rem), 700px);
+  list-style: none;
+  padding-block: 2rem; /* create space for drop shadows */
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 250px; 
+  gap:0;
+  /*outline: 1px dashed red;*/
+  anchor-name: --carousel;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behaviour-x: contain; 
+  scroll-behavior: smooth; /* keep things smooth (should probably be wihtin a prefers query) */
+  scrollbar-width: none;
 
-        .card-bg-2 {
-            background-image: url('https://placehold.co/800x600/1f2937/fff?text=AI+and+Machine+Learning');
-            background-size: cover;
-            background-position: center;
-        }
+  /* empty pseudo elements to push first and last items to the middle */
+  &::before,
+  &::after{
+      content: '';
+  }
+  
+  
+  /**************** MARKERS GROUP *******************/
+  /* the item markers will be dynamically placed within this element */
+  scroll-marker-group: after; /* place after elements*/
+  &::scroll-marker-group{
+    position: absolute;
+    position-anchor: --carousel;
+    inline-size: min(90cqi, 400px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    gap: .25rem;
+    padding-block-start: 1rem;
+    top: anchor( bottom );
+    left: calc(anchor(left) - 10%);
+    right: calc(anchor(right) - 10%);
+  }
+  /* carousel item*/
+  > div{
+    position: relative;
+    scroll-snap-align: center; /* centers snap */
+    scroll-snap-stop: always; /* ensures that the scroll stops at each element */
+    container-type: scroll-state; /* define container for child animations */
+     
+    display: grid;
+    grid-template-areas: 'img' 'title' 'desc';
+    text-align: center;
+		
+		/* scroll to this item on load */
+		&.scroll-start {
+				scroll-initial-target: nearest;
+		}
+    > * {
+      /*outline: 1px dashed red;*/
+    }
+    /* item title/name */
+    > h2{
+      grid-area: title;
+      margin: 1rem 0 0 0;
+			font-size: 1.3rem;
+			white-space: nowrap;
+      transition: all 300ms ease-in-out;
+      /* not current item */
+      @container not scroll-state(snapped: inline) {
+        scale: .5;
+        opacity: .5;
+        translate: 0 -100px;
+      }
+    }
+    > p{
+      grid-area: desc;
+      margin: 0;
+			white-space: nowrap;
+      transition: all 300ms ease-in-out;
+      @container not scroll-state(snapped: inline) {
+        scale: .5;
+        opacity: 0;
+        /*translate: 0 100px;*/
+      }
+    }
+    > .img{
+      grid-area: img;
+      width: 50%;
+      aspect-ratio: 1;
+      transition: all 300ms ease-in-out;
+      transform-origin: center center;
+      /* not current item */
+      @container not scroll-state(snapped: inline) {
+        scale: .5;
+        opacity: .5;
+      }
+      & > img{
+        width:100%;
+        height: 100%;
+        object-fit:cover;
+        border-radius: 20px;
+        box-shadow: 0 10px 20px  rgba(0 0 0 / .25);
+      }
+      
+    }
 
-        .card-bg-3 {
-            background-image: url('https://placehold.co/800x600/1f2937/fff?text=Prototyping+and+Design');
-            background-size: cover;
-            background-position: center;
-        }
+
+    /************** MARKERS **************/
+    &::scroll-marker{
+      content: ' ';
+      height:20px;
+      aspect-ratio: 1;
+      background-color: var(--nav-marker-bg);
+      border-radius:50%;
+      transition: 150ms ease-in-out;
+      scale: .75;
+      opacity: .25;
+    }
+    /* current item marker */
+    &::scroll-marker:target-current{
+      opacity: 1;
+      scale: 1;
+    }
+    /* hover and keyboard focus */
+    &::scroll-marker:where(:hover,:focus-visible){
+      opacity: 1;
+    }
+    /* keybaord focus-*/
+    &::scroll-marker:focus-visible{
+      outline: 1px dashed var(--nav-marker-bg);
+      outline-offset: 4px;
+    }
+  }
+
+  
+  /************* NAV BUTTONS(left and right) ************/
+  &::scroll-button(*){
+    position: absolute;
+    position-anchor: --carousel;
+    width: var(--nav-btn-size);
+    aspect-ratio: 1/1;
+    font: inherit;
+    background-color: var(--nav-btn-bg);
+    display: grid;
+    place-content: center;
+    color: #FFF;
+    border:none;
+    border-radius: 50%;
+    opacity: 0.7;
+    cursor: pointer;
+    transition: all 150ms ease-in-out;
+    outline: 1px dashed transparent;
+    outline-offset: 0px;
+  }
+  /* button - prev */
+  &::scroll-button(inline-start){
+    content: '❮';
+    left: calc(anchor(left) - var(--nav-btn-size));
+  }
+  /* button - next */
+  &::scroll-button(inline-end){
+    content: '❯';
+    right: calc(anchor(right) - var(--nav-btn-size));
+  }
+  /* hover and keyboard focus */
+  &::scroll-button(*):not(:disabled):where(:hover,:focus-visible){
+    opacity: 1;
+    scale: 1.1;
+  }
+  /* keyboard focus*/
+  &::scroll-button(*):focus-visible{
+    outline: 1px dashed var(--nav-btn-bg);
+    outline-offset: 4px;
+  }
+  /* disabled */
+  &::scroll-button(*):disabled{
+    opacity: .25;
+    cursor: unset;
+  }
+}
+  
+  /* general styling not relevant for this demo */
+@layer base {
+	* {
+		box-sizing: border-box;
+	}
+	:root {
+		color-scheme: light dark;
+		--bg-dark: rgb(16, 24, 40);
+		--bg-light: rgb(248, 244, 238);
+		--txt-light: rgb(10, 10, 10);
+		--txt-dark: rgb(245, 245, 245););
+		--line-light: rgba(0 0 0 / .25);
+		--line-dark: rgba(255 255 255 / .25);
+    /*
+    --clr-bg: light-dark(var(--bg-light), var(--bg-dark));
+    --clr-txt: light-dark(var(--txt-light), var(--txt-dark));
+    --clr-lines: light-dark(var(--line-light), var(--line-dark));
+    */
+	}
+ 
+	body {
+		background-color: #FFF;
+		color: var(--txt-light);
+		min-height: 100svh;
+		margin: 0;
+		padding: 2rem;
+		font-family: "Jura", sans-serif;
+		font-size: 1rem;
+		line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+		& > * {
+			/*outline: 1px dashed red;*/
+		}
+	}
+	h1 {
+		margin: 0;
+		font-size: 1.2rem;
+	}
+
+	.msg-supports {
+		font-size: 0.8rem;
+		/*
+    @supports (animation-timeline: scroll()) {
+			display: none;
+		}
+    @supports (order:sibling-index()) {
+			display: none;
+		}
+    @supports (x: attr(x type(*))) {
+			display: none;
+		}
+    */
+    @supports selector(::scroll-marker-group) {
+			display: none;
+		}
+	}
+}
+
     </style>
 </head>
 <body>
+    <h1>CSS only carousel using <code>::scroll-*</code> [demo 2]</h1>	
+    <p class="msg-supports">Sorry, your browser doesn't support <code>::scroll-*</code></p>
+  <section class="carousel">
+    <div>
+      <h2>Raymond McKenzie</h2>
+      <p>CEO</p>
+      <div class="img"><img src="https://i.pravatar.cc/400?img=53" alt="Raymond McClenzie"></div>
+    </div>
+		<div>
+      <h2>Elizabeth Turner</h2>
+      <p>Marketing Director</p>
+      <div class="img"><img src="https://i.pravatar.cc/300?img=5" alt="Elizabeth Turner" loading="lazy"></div>
+    </div>
+    <!-- the "scroll-start" class is used to define which element should be "active" on load -->
+    <div class="scroll-start">
+      <h2>Suzanne Yorke</h2>
+      <p>Creative Director</p>
+      <div class="img"><img src="https://i.pravatar.cc/300?img=44" alt="Suzanne Yorke" loading="lazy"></div>
+    </div>
+    <div>
+      <h2>Simon Hadley</h2>
+      <p>Social Media & Networking</p>
+      <div class="img"><img src="https://i.pravatar.cc/300?img=12" alt="Simon Hadley" loading="lazy"></div>
+    </div>
+    <div>
+      <h2>Harriet Johnson</h2>
+      <p>Front-End Developer</p>
+      <div class="img"><img src="https://i.pravatar.cc/300?img=27" alt="Harriet Johnson" loading="lazy"></div>
+    </div>
+    <div>
+      <h2>Felipe Rodriguez</h2>
+      <p>Designer</p>
+      <div class="img"><img src="https://i.pravatar.cc/300?img=13" alt="Felipe Rodriguez" loading="lazy"></div>
+    </div>
+    <div>
+      <h2>Jonathon Simmons</h2>
+      <p>Back-End Developer</p>
+      <div class="img"><img src="https://i.pravatar.cc/300?img=15" alt="Jonathon Simmons" loading="lazy"></div>
+    </div>
+    <div>
+      <h2>Sarah-Jane Smith</h2>
+      <p>Back-End Developer</p>
+      <div class="img"><img src="https://i.pravatar.cc/300?img=38" alt="Sarah-Jane Smith" loading="lazy"></div>
+    </div>
+    
+  </section>
 
-    <!-- Header Section -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-white bg-opacity-10 backdrop-filter backdrop-blur-sm shadow-md">
-        <nav class="max-w-8xl mx-auto flex justify-between items-center px-6 md:px-12 lg:px-48 h-16">
-            <!-- Logo -->
-            <a href="#" class="flex items-center space-x-2">
-                <img src="images/2.png" alt="Nyza Engineering Logo" class="h-16">
-            </a>
-
-            <!-- Desktop Navigation Links -->
-            <div class="hidden md:flex items-center space-x-8 text-white">
-                <a href="#" class="font-medium hover:text-[rgb(93,168,255)] transition-colors">Home</a>
-                <a href="#" class="font-medium hover:text-[rgb(93,168,255)] transition-colors">Projects</a>
-                <a href="#" class="font-medium hover:text-[rgb(93,168,255)] transition-colors">Expertise</a>
-                <a href="#" class="font-medium hover:text-[rgb(93,168,255)] transition-colors">Why Us</a>
-                <button class="bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg">
-                    HIRE US
-                </button>
-            </div>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
-                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-        </nav>
-
-        <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 bg-opacity-90 backdrop-filter backdrop-blur-sm shadow-lg">
-            <div class="flex flex-col items-center py-4 space-y-4 text-white">
-                <a href="#" class="font-medium text-lg hover:text-[rgb(93,168,255)] transition-colors w-full text-center py-2">Home</a>
-                <a href="#" class="font-medium text-lg hover:text-[rgb(93,168,255)] transition-colors w-full text-center py-2">Projects</a>
-                <a href="#" class="font-medium text-lg hover:text-[rgb(93,168,255)] transition-colors w-full text-center py-2">Expertise</a>
-                <a href="#" class="font-medium text-lg hover:text-[rgb(93,168,255)] transition-colors w-full text-center py-2">Why Us</a>
-                <button class="bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg w-auto">
-                    HIRE US
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section Start -->
-    <section id="hero-section">
-        <div class="relative w-full h-screen flex items-center justify-start text-white hero-bg">
-            <!-- Background overlay for better text readability -->
-            <div class="absolute inset-0 bg-gray-900 bg-opacity-70"></div>
-
-            <!-- Content container - IMPROVED RESPONSIVENESS -->
-            <div class="relative z-10 w-full lg:basis-2/3 max-w-7xl mx-auto px-6 md:px-12 lg:px-0">
-                <!-- The three-word title -->
-                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-2">
-                    Robots.<br>Designed. Built.
-                </h1>
-                <!-- "Powered by Us" tagline - IMPROVED RESPONSIVENESS -->
-                <p class="text-lg font-light tracking-wide mb-8">
-                    Powered by Us
-                </p>
-                <!-- Small paragraph below the title -->
-                <div class="text-lg md:text-xl font-light leading-relaxed space-y-4">
-                    <p>Need a hand bringing your robot to life?</p>
-                    <p>We provide engineering support to inventors, startups and hardware teams. <br> Get specialized mechanical design or complete robotic solutions at budget-friendly prices.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Hero Section End -->
-
-    <!-- Expertise Highlights Section Start -->
-    <section id="expertise-section" class="py-20 bg-gray-900 text-white">
-        <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-72">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-16">
-                Our Core Expertise
-            </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-                <!-- Expertise Card 1 -->
-                <div class="relative h-96 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105 overflow-hidden card-bg-1">
-                    <!-- Dark overlay for text readability, now with centered content -->
-                    <div class="absolute inset-0 bg-gray-900 bg-opacity-70 flex flex-col justify-center items-center p-8 text-center">
-                        <h3 class="text-2xl font-bold mb-2">Industrial Automation</h3>
-                        <p class="text-gray-300">
-                            We design and deploy custom automated systems to optimize manufacturing, logistics, and assembly lines for increased efficiency and reliability.
-                        </p>
-                    </div>
-                </div>
-                <!-- Expertise Card 2 -->
-                <div class="relative h-96 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105 overflow-hidden card-bg-2">
-                    <!-- Dark overlay for text readability, now with centered content -->
-                    <div class="absolute inset-0 bg-gray-900 bg-opacity-70 flex flex-col justify-center items-center p-8 text-center">
-                        <h3 class="text-2xl font-bold mb-2">AI & Machine Learning</h3>
-                        <p class="text-gray-300">
-                            Our experts integrate cutting-edge AI and machine learning models to enable smart, autonomous decision-making and predictive maintenance in your robotics.
-                        </p>
-                    </div>
-                </div>
-                <!-- Expertise Card 3 -->
-                <div class="relative h-96 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105 overflow-hidden card-bg-3">
-                    <!-- Dark overlay for text readability, now with centered content -->
-                    <div class="absolute inset-0 bg-gray-900 bg-opacity-70 flex flex-col justify-center items-center p-8 text-center">
-                        <h3 class="text-2xl font-bold mb-2">Prototyping & Design</h3>
-                        <p class="text-gray-300">
-                            From initial concept to detailed CAD models and physical prototypes, we guide your project through the entire design and development lifecycle.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Expertise Highlights Section End -->
-
-    <!-- Design Process Section Start -->
-    <section id="design-process" class="py-12 md:py-20 bg-gray-900 text-white">
-        <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-72">
-            <!-- Increased gap for better mobile spacing -->
-            <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
-                <!-- Left Column: Process Steps -->
-                <div class="md:w-1/2">
-                    <p class="text-[rgb(93,168,255)] uppercase tracking-widest text-sm font-semibold mb-2">Our Design Process</p>
-                    <!-- Adjusted font sizes for better responsiveness -->
-                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 md:mb-8">
-                        How We Transform Ideas into Reality
-                    </h2>
-                    <p class="text-gray-300 mb-6 md:mb-10">
-                        Our design process combines engineering expertise with creative problem-solving to deliver innovative robotics solutions. We follow a proven methodology that ensures every project exceeds expectations.
-                    </p>
-
-                    <!-- Process Steps -->
-                    <ol class="space-y-4 md:space-y-6">
-                        <!-- Step 1 -->
-                        <li class="flex items-start space-x-4">
-                            <span class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-full bg-[rgb(93,168,255)] text-white font-bold text-lg">1</span>
-                            <div>
-                                <h3 class="text-xl font-bold">Discovery</h3>
-                                <p class="text-gray-300">
-                                    We begin by understanding your challenges, goals, and vision through in-depth consultations.
-                                </p>
-                            </div>
-                        </li>
-                        <!-- Step 2 -->
-                        <li class="flex items-start space-x-4">
-                            <span class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-full bg-[rgb(93,168,255)] text-white font-bold text-lg">2</span>
-                            <div>
-                                <h3 class="text-xl font-bold">Concept Development</h3>
-                                <p class="text-gray-300">
-                                    Our engineers create custom designs and prototypes tailored to your specific requirements.
-                                </p>
-                            </div>
-                        </li>
-                        <!-- Step 3 -->
-                        <li class="flex items-start space-x-4">
-                            <span class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-full bg-[rgb(93,168,255)] text-white font-bold text-lg">3</span>
-                            <div>
-                                <h3 class="text-xl font-bold">Implementation</h3>
-                                <p class="text-gray-300">
-                                    We bring your solution to life with precision engineering and quality craftsmanship.
-                                </p>
-                            </div>
-                        </li>
-                        <!-- Step 4 -->
-                        <li class="flex items-start space-x-4">
-                            <span class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-full bg-[rgb(93,168,255)] text-white font-bold text-lg">4</span>
-                            <div>
-                                <h3 class="text-xl font-bold">Optimization</h3>
-                                <p class="text-gray-300">
-                                    Through testing and refinement, we ensure your robotics solution performs at its peak.
-                                </p>
-                            </div>
-                        </li>
-                    </ol>
-                </div>
-
-                <!-- Right Column: Video Player with embedded YouTube video -->
-                <!-- UPDATED: Added w-full for full-width on all screen sizes to prevent shrinking -->
-                <div class="md:w-1/2 w-full flex justify-center items-center px-4 md:px-0 mt-8 md:mt-0">
-                    <div class="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
-                        <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/vMGoHL_HHtI?si=2Qg73IdlMZ_DP6cJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Design Process Section End -->
-
-    <!-- Featured Projects Section Start -->
-    <section id="projects-section" class="py-12 md:py-20 bg-gray-800 text-white">
-        <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-72">
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center mb-12 md:mb-16">
-                Featured Projects
-            </h2>
-            <div class="grid grid-cols-1 gap-12 md:gap-20">
-                <!-- Project Card 1: Image on Right -->
-                <div class="bg-gray-900 rounded-xl shadow-lg flex flex-col md:flex-row items-stretch overflow-hidden">
-                    <!-- Text Content - Adjusted padding and font sizes for better mobile view -->
-                    <div class="md:w-1/2 p-6 lg:p-12 space-y-3">
-                        <h3 class="text-[rgb(93,168,255)] uppercase tracking-widest text-xs sm:text-sm font-semibold">Industrial Automation</h3>
-                        <h4 class="text-2xl sm:text-3xl font-bold mb-2">Automated Warehouse System</h4>
-                        <div>
-                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">OVERVIEW</h5>
-                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
-                                We designed and implemented a fully autonomous robot for sorting and transporting packages in a large-scale warehouse, significantly boosting efficiency.
-                            </p>
-                        </div>
-                        <div>
-                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">PROJECT BRIEF</h5>
-                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
-                                Our solution uses advanced computer vision and pathfinding algorithms to significantly boost operational efficiency and reduce human error, with a focus on safety and scalability.
-                            </p>
-                        </div>
-                        <div>
-                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">ROLE</h5>
-                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
-                                Lead Mechanical Engineer, Robotics Programmer
-                            </p>
-                        </div>
-                        <div>
-                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">METHOD</h5>
-                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
-                                We followed a modular design approach, with custom CAD models drawn using Fusion 360 and simulations performed to validate the design before physical prototyping.
-                            </p>
-                        </div>
-
-                        <!-- Skill Tags -->
-                        <div class="flex flex-wrap gap-2 pt-4">
-                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Fusion 360</span>
-                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">CAD</span>
-                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">3D Modeling</span>
-                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Mechanical Design</span>
-                        </div>
-                        <!-- New button group -->
-                        <div class="flex flex-wrap gap-4 mt-6">
-                            <a href="#" class="bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg text-sm inline-block">
-                                View Project Detail
-                            </a>
-                            <a href="#" class="bg-gray-700 hover:bg-gray-600 transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg text-sm inline-block">
-                                See all projects
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Image -->
-                    <div class="md:w-1/2 p-4 md:p-6 flex items-center justify-center">
-                        <img src="https://placehold.co/800x600/1f2937/fff?text=Automated+Warehouse" alt="Automated Warehouse System" class="w-full h-auto object-cover rounded-md">
-                    </div>
-                </div>
-
-                <!-- Project Card 2: Image on Left -->
-                <div class="bg-gray-900 rounded-xl shadow-lg flex flex-col md:flex-row-reverse items-stretch overflow-hidden">
-                    <!-- Text Content - Adjusted padding and font sizes for better mobile view -->
-                    <div class="md:w-1/2 p-6 lg:p-12 space-y-3">
-                        <h3 class="text-[rgb(93,168,255)] uppercase tracking-widest text-xs sm:text-sm font-semibold">Medical Robotics</h3>
-                        <h4 class="text-2xl sm:text-3xl font-bold mb-2">Medical Assistance Robot</h4>
-                        <div>
-                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">OVERVIEW</h5>
-                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
-                                A compact and precise robotic arm for assisting surgeons in delicate procedures.
-                            </p>
-                        </div>
-                        <div>
-                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">PROJECT BRIEF</h5>
-                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
-                                The design prioritizes sterile environments and intuitive controls, allowing for remote operation and a reduction in human error.
-                            </p>
-                        </div>
-                        <div>
-                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">ROLE</h5>
-                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
-                                Senior Mechatronics Engineer, Project Manager
-                            </p>
-                        </div>
-                        <div>
-                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">METHOD</h5>
-                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
-                                We utilized advanced materials and control systems to ensure precision and safety, with a focus on improving patient outcomes and surgical precision.
-                            </p>
-                        </div>
-
-                        <!-- Skill Tags -->
-                        <div class="flex flex-wrap gap-2 pt-4">
-                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">SolidWorks</span>
-                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Robotics</span>
-                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Embedded Systems</span>
-                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Medical Device Design</span>
-                        </div>
-                        <!-- New button group -->
-                        <div class="flex flex-wrap gap-4 mt-6">
-                            <a href="#" class="bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg text-sm inline-block">
-                                View Project Detail
-                            </a>
-                            <a href="#" class="bg-gray-700 hover:bg-gray-600 transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg text-sm inline-block">
-                                See all projects
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Image -->
-                    <div class="md:w-1/2 p-4 md:p-6 flex items-center justify-center">
-                        <img src="https://placehold.co/800x600/1f2937/fff?text=Medical+Assistance" alt="Medical Assistance Robot" class="w-full h-auto object-cover rounded-md">
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-16">
-                <button class="bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg text-sm">
-                    View All Projects
-                </button>
-            </div>
-        </div>
-    </section>
-    <!-- Featured Projects Section End -->
-
-    <!-- Client Feedback Section Start -->
-    <section id="client-feedback" class="py-20 bg-gray-900 text-white">
-        <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-72">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-16">
-                What Our Clients Say
-            </h2>
-
-            <div class="relative w-full overflow-hidden">
-                <!-- Carousel track for the cards -->
-                <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out">
-                    <!-- Testimonial Card 1 -->
-                    <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4">
-                        <div class="bg-gray-800 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center h-full">
-                            <img src="https://placehold.co/100x100/A0B9DE/fff?text=Client+1" alt="Client 1" class="w-32 h-32 rounded-full mb-6 object-cover aspect-square border-4 border-[rgb(93,168,255)]">
-                            <h4 class="text-xl font-bold mb-1">Kelley West</h4>
-                            <p class="text-base text-gray-400 font-medium mb-4">Mobile Designer</p>
-                            <p class="text-base text-gray-300 leading-relaxed mb-6">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Testimonial Card 2 -->
-                    <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4">
-                        <div class="bg-gray-800 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center h-full">
-                            <img src="https://placehold.co/100x100/96A1B2/fff?text=Client+2" alt="Client 2" class="w-32 h-32 rounded-full mb-6 object-cover aspect-square border-4 border-[rgb(93,168,255)]">
-                            <h4 class="text-xl font-bold mb-1">Vanessa Martinez</h4>
-                            <p class="text-base text-gray-400 font-medium mb-4">Web Designer</p>
-                            <p class="text-base text-gray-300 leading-relaxed mb-6">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Testimonial Card 3 -->
-                    <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4">
-                        <div class="bg-gray-800 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center h-full">
-                            <img src="https://placehold.co/100x100/96A1B2/fff?text=Client+3" alt="Client 3" class="w-32 h-32 rounded-full mb-6 object-cover aspect-square border-4 border-[rgb(93,168,255)]">
-                            <h4 class="text-xl font-bold mb-1">Sarah Bowen</h4>
-                            <p class="text-base text-gray-400 font-medium mb-4">UI Designer</p>
-                            <p class="text-base text-gray-300 leading-relaxed mb-6">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Testimonial Card 4 -->
-                    <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4">
-                        <div class="bg-gray-800 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center h-full">
-                            <img src="https://placehold.co/100x100/96A1B2/fff?text=Client+4" alt="Client 4" class="w-32 h-32 rounded-full mb-6 object-cover aspect-square border-4 border-[rgb(93,168,255)]">
-                            <h4 class="text-xl font-bold mb-1">David Murphy</h4>
-                            <p class="text-base text-gray-400 font-medium mb-4">Web Developer</p>
-                            <p class="text-base text-gray-300 leading-relaxed mb-6">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Testimonial Card 5 -->
-                    <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4">
-                        <div class="bg-gray-800 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center h-full">
-                            <img src="https://placehold.co/100x100/A0B9DE/fff?text=Client+5" alt="Client 5" class="w-32 h-32 rounded-full mb-6 object-cover aspect-square border-4 border-[rgb(93,168,255)]">
-                            <h4 class="text-xl font-bold mb-1">Kelley West</h4>
-                            <p class="text-base text-gray-400 font-medium mb-4">Mobile Designer</p>
-                            <p class="text-base text-gray-300 leading-relaxed mb-6">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Carousel Navigation Buttons -->
-                <button id="prev-button" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-[rgb(93,168,255)] transition-colors hidden md:block">
-                    &lt;
-                </button>
-                <button id="next-button" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-[rgb(93,168,255)] transition-colors hidden md:block">
-                    &gt;
-                </button>
-            </div>
-        </div>
-    </section>
-    <!-- Client Feedback Section End -->
-
-    <!-- Footer Section Start -->
-    <footer class="bg-gray-950 text-white pt-20">
-        <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-72">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-b border-gray-800">
-                <!-- Column 1: Company Info -->
-                <div>
-                    <!-- Logo -->
-                    <a href="#" class="flex items-center space-x-2 mb-4">
-                        <img src="images/2.png" alt="Nyza Engineering Logo" class="h-16">
-                    </a>
-                    <p class="text-gray-400 leading-relaxed mb-6">
-                        Revolutionizing robotics and automation with cutting-edge innovation and exceptional engineering expertise from Bangladesh.
-                    </p>
-                    <div class="flex space-x-4 text-xl">
-                        <a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Column 2: Quick Links -->
-                <div>
-                    <h5 class="text-lg font-bold mb-6">Quick Links</h5>
-                    <ul class="space-y-3">
-                        <!-- Updated quick links to match the new page list -->
-                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Home</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Projects</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Expertise</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Why Us</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Hire Us</a></li>
-                    </ul>
-                </div>
-
-                <!-- Column 3: Our Expertise (Updated heading) -->
-                <div>
-                    <h5 class="text-lg font-bold mb-6">Our Expertise</h5>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Custom Robotics Development</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">AI-Driven Surveillance</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Automation & Industrial Robotics</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Embedded Systems & IoT</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Smart Agriculture Solutions</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Consultation & Research</a></li>
-                    </ul>
-                </div>
-
-                <!-- Column 4: Contact Us -->
-                <div>
-                    <h5 class="text-lg font-bold mb-6">Contact Us</h5>
-                    <ul class="space-y-4 text-gray-400">
-                        <li class="flex items-center space-x-3">
-                            <svg class="h-5 w-5 text-[rgb(93,168,255)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            <span>Dhaka, Bangladesh</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <svg class="h-5 w-5 text-[rgb(93,168,255)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.293 1.147a1 1 0 00-.464 1.186l.96 1.764a1 1 0 001.21.502l4.493-1.498a1 1 0 011.21-.502l1.147 2.293a1 1 0 001.186.464l1.764-.96a1 1 0 00.502-1.21l-1.498-4.493a1 1 0 01.684-.948H19a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path></svg>
-                            <span>+8801575436196</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <svg class="h-5 w-5 text-[rgb(93,168,255)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                            <span>contact@nyzaengineering.com</span>
-                        </li>
-                    </ul>
-                    <a href="#" class="mt-6 inline-block bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-3 px-8 rounded-md shadow-lg">
-                        Contact Us
-                    </a>
-                </div>
-            </div>
-
-            <!-- Copyright and Legal Links -->
-            <div class="text-center py-8">
-                <p class="text-gray-500 text-sm">
-                    © 2025 Nyza Engineering Design. All rights reserved.
-                </p>
-                <div class="mt-2 text-gray-500 text-sm space-x-4">
-                    <a href="#" class="hover:text-[rgb(93,168,255)] transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-[rgb(93,168,255)] transition-colors">Terms of Service</a>
-                    <a href="#" class="hover:text-[rgb(93,168,255)] transition-colors">Sitemap</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer Section End -->
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const carouselTrack = document.getElementById('carousel-track');
-            const prevButton = document.getElementById('prev-button');
-            const nextButton = document.getElementById('next-button');
-            const totalCards = carouselTrack.children.length;
-            let currentCardIndex = 0;
-            let slideInterval;
-
-            function getVisibleSlides() {
-                if (window.innerWidth >= 1024) return 3;
-                if (window.innerWidth >= 768) return 2;
-                return 1;
-            }
-
-            function updateCarousel() {
-                const visibleSlides = getVisibleSlides();
-                const totalSlides = totalCards - visibleSlides;
-                if (currentCardIndex > totalSlides) {
-                    currentCardIndex = totalSlides;
-                }
-                const cardWidthPercentage = 100 / visibleSlides;
-                carouselTrack.style.transform = `translateX(-${currentCardIndex * cardWidthPercentage}%)`;
-            }
-
-            function startAutoplay() {
-                stopAutoplay(); // Clear any existing interval
-                slideInterval = setInterval(() => {
-                    const visibleSlides = getVisibleSlides();
-                    const totalSlides = totalCards - visibleSlides;
-                    currentCardIndex = (currentCardIndex + 1);
-                    if (currentCardIndex > totalSlides) {
-                        currentCardIndex = 0; // Loop back to the start
-                    }
-                    updateCarousel();
-                }, 3000); // Change slide every 3 seconds
-            }
-
-            function stopAutoplay() {
-                clearInterval(slideInterval);
-            }
-
-            nextButton.addEventListener('click', () => {
-                stopAutoplay();
-                const visibleSlides = getVisibleSlides();
-                const totalSlides = totalCards - visibleSlides;
-                if (currentCardIndex < totalSlides) {
-                    currentCardIndex++;
-                }
-                updateCarousel();
-                startAutoplay();
-            });
-
-            prevButton.addEventListener('click', () => {
-                stopAutoplay();
-                if (currentCardIndex > 0) {
-                    currentCardIndex--;
-                } else {
-                    const visibleSlides = getVisibleSlides();
-                    const totalSlides = totalCards - visibleSlides;
-                    currentCardIndex = totalSlides; // Loop to the end
-                }
-                updateCarousel();
-                startAutoplay();
-            });
-
-            // Adjust carousel on resize
-            window.addEventListener('resize', () => {
-                stopAutoplay();
-                currentCardIndex = 0; // Reset to the beginning on resize
-                updateCarousel();
-                startAutoplay();
-            });
-
-            // Start autoplay initially
-            startAutoplay();
-
-            // Mobile menu functionality
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        });
-    </script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
