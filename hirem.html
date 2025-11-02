@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyza Engineering Design - Expertise</title>
+    <!-- Tailwind CSS CDN for styling --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom font import for a professional look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+
+        /* Custom CSS variables for a consistent dark theme */
+        :root {
+            --bg-color: #0d0e14;
+            --text-color: #fff;
+            --primary-color: #5da8ff;
+            --accent-color: #3f8ae1;
+            --card-bg: #111827;
+            --secondary-bg: #1f2937;
+            --border-color: #374151;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --placeholder-bg: #1f2937;
+        }
+
+        /* Applying variables to the body and other elements for a dark theme */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* Custom class for the active navigation link */
+        .nav-link.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+    </style>
+</head>
+<body class="bg-bg-color text-text-color">
+
+    <!-- Header Section -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-gray-600 bg-opacity-40 backdrop-filter backdrop-blur-sm shadow-md">
+        <nav class="max-w-8xl mx-auto flex justify-between items-center px-6 md:px-12 lg:px-48 h-16">
+            <!-- Logo --><a href="index.html" class="flex items-center space-x-2">
+                <img src="images/2.png" alt="Nyza Engineering Logo" class="h-16">
+            </a>
+
+            <!-- Desktop Navigation Links --><div class="hidden md:flex items-center space-x-8 text-white">
+                <a href="index.html" class="font-medium hover:text-[rgb(93,168,255)] transition-colors">Home</a>
+                <a href="projects.html" class="font-medium hover:text-[rgb(93,168,255)] transition-colors">Projects</a>
+                <a href="expertise.html" class="font-medium hover:text-[rgb(93,168,255)] transition-colors">Expertise</a>
+                <a href="whyUs.html" class="font-medium hover:text-[rgb(93,168,255)] transition-colors">Why Us</a>
+                <a href="Hire.html" class="bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg">
+                    HIRE US
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button --><button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu Panel --><div id="mobile-menu" class="hidden md:hidden bg-gray-900 bg-opacity-90 backdrop-filter backdrop-blur-sm shadow-lg">
+            <div class="flex flex-col items-center py-4 space-y-4 text-white">
+                <a href="index.html" class="font-medium text-lg hover:text-[rgb(93,168,255)] transition-colors w-full text-center py-2">Home</a>
+                <a href="projects.html" class="font-medium text-lg hover:text-[rgb(93,168,255)] transition-colors w-full text-center py-2">Projects</a>
+                <a href="expertise.html" class="font-medium text-lg hover:text-[rgb(93,168,255)] transition-colors w-full text-center py-2">Expertise</a>
+                <a href="whyUs.html" class="font-medium text-lg hover:text-[rgb(93,168,255)] transition-colors w-full text-center py-2">Why Us</a>
+                <a href="Hire.html" class="bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg w-auto">
+                    HIRE US
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area Start -->
+    <main class="pt-24 pb-20 bg-gray-800">
+        
+            <!-- 4-Card Service Grid (Existing Content) -->
+            <section class="bg-gray-800 py-12 px-6 md:px-12 lg:px-36">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-center mb-12 text-white">
+                    Hire Our Robotics & Mechatronics Team
+                </h1>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+                    <!-- Service Card 1: Expert Consultancy -->
+                    <div class="bg-card-bg p-8 rounded-xl shadow-lg border border-gray-700 hover:border-primary-color transition-all duration-300">
+                        <h2 class="text-3xl font-bold text-primary-color mb-4">1. Expert Consultancy</h2>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            Get expert answers on robotics, product development, and early-stage R&D.
+                        </p>
+                        <p class="text-4xl font-extrabold text-blue-400 mb-8">$80 / hr</p>
+                        <a href="Hire.html" class="w-full bg-primary-color hover:bg-accent-color text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200">
+                            Book Now
+                        </a>
+                    </div>
+
+                    <!-- Service Card 2: Fixed Price Mechanical Design -->
+                    <div class="bg-card-bg p-8 rounded-xl shadow-lg border border-gray-700 hover:border-primary-color transition-all duration-300">
+                        <h2 class="text-3xl font-bold text-primary-color mb-4">2. Fixed Price Mechanical Design</h2>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            A finalized, production-ready mechanical design package with essential files.
+                        </p>
+                        <p class="text-4xl font-extrabold text-primary-color mb-8">Starts at $2,000</p>
+                        <a href="Hire.html" class="w-full bg-primary-color hover:bg-accent-color text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200">
+                            See Details
+                        </a>
+                    </div>
+
+                    <!-- Service Card 3: Pay-As-You-Go NPD -->
+                    <div class="bg-card-bg p-8 rounded-xl shadow-lg border border-gray-700 hover:border-primary-color transition-all duration-300">
+                        <h2 class="text-3xl font-bold text-primary-color mb-4">3. Pay-As-You-Go NPD</h2>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            Refine an idea slowly, validate concepts, and explore technical feasibility.
+                        </p>
+                        <p class="text-4xl font-extrabold text-primary-color mb-8">$40 / hr</p>
+                        <a href="Hire.html" class="w-full bg-primary-color hover:bg-accent-color text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200">
+                            Explore
+                        </a>
+                    </div>
+
+                    <!-- Service Card 4: Turnkey Project -->
+                    <div class="bg-card-bg p-8 rounded-xl shadow-lg border border-gray-700 hover:border-primary-color transition-all duration-300">
+                        <h2 class="text-3xl font-bold text-primary-color mb-4">4. Turnkey Project</h2>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            Full system development: mechanical design, hardware, prototyping, and software.
+                        </p>
+                        <p class="text-4xl font-extrabold text-primary-color mb-8">$35k - $300k+</p>
+                        <a href="Hire.html" class="w-full bg-primary-color hover:bg-accent-color text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200">
+                            Start a Discussion
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DETAILED SECTION 2: Fixed Price Mechanical Design Module (Previous Request) -->
+            
+                <div class="p-6 md:p-12 lg:p-36 bg-gray-900">
+                    <!-- Title and Introduction -->
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-primary-color pb-4 inline-block leading-tight">
+                        2. Fixed Price Mechanical Design Module (Main Cashflow)
+                    </h2>
+                    <p class="text-gray-300 max-w-4xl mb-12 text-base sm:text-lg">
+                        Our most popular service. This module delivers a complete mechanical design package for robots or automated systems with multiple moving parts, ensuring you have all the files and documentation needed for fabrication.
+                    </p>
+
+                    <!-- Image Placeholders -->
+                    <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mb-12">
+                        <div class="flex-1 bg-card-bg p-6 rounded-lg text-center text-gray-500 border border-gray-700 h-48 sm:h-56 md:h-72 flex items-center justify-center">
+                            Image Placeholder
+                        </div>
+                        <div class="flex-1 bg-card-bg p-6 rounded-lg text-center text-gray-500 border border-gray-700 h-48 sm:h-56 md:h-72 flex items-center justify-center">
+                            Image Placeholder
+                        </div>
+                        <div class="flex-1 bg-card-bg p-6 rounded-lg text-center text-gray-500 border border-gray-700 h-48 sm:h-56 md:h-72 flex items-center justify-center">
+                            Image of Engineering Drawing
+                        </div>
+                    </div>
+
+                    <!-- Pricing Structure: Base Package (Blue) and Add-ons (Dark) -->
+                    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+
+                    <!-- Left Column: Base Package (Now Simplified) -->
+                    <div class="lg:col-span-2 p-8 bg-gray-800 rounded-xl shadow-2xl transition-all duration-300 border border-gray-700 transform hover:scale-[1.02] bg-card-bg">
+                        <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-4">
+                            Base Package: Production Ready Design
+                        </h3>
+
+                        <p class="text-6xl font-black text-primary-color mb-6" id="base-price-display">
+                            $2,000
+                        </p>
+                        
+
+                        <h4 class="text-xl font-bold text-white mb-3 border-b border-gray-700 pb-2 mt-8">
+                            Features:
+                        </h4>
+                        <!-- Features list -->
+                        <ul class="space-y-4 text-gray-200 text-lg list-none pl-0">
+                            <li class="flex items-center space-x-4">
+                                <!-- Icon 1: Rough CAD -->
+                                <img src="https://placehold.co/100x100/3b82f6/ffffff?text=CAD" alt="CAD Icon" class="w-10 h-10 rounded-xl flex-shrink-0">
+                                <span>Rough CAD design</span>
+                            </li>
+                            <li class="flex items-center space-x-4">
+                                <!-- Icon 3: Final 3D CAD -->
+                                <img src="https://placehold.co/100x100/f59e0b/ffffff?text=3D" alt="3D Files Icon" class="w-10 h-10 rounded-xl flex-shrink-0">
+                                <span>Final 3D CAD files</span>
+                            </li>
+                            <li class="flex items-center space-x-4">
+                                <!-- Icon 4: BOM -->
+                                <img src="https://placehold.co/100x100/8b5cf6/ffffff?text=BOM" alt="BOM Icon" class="w-10 h-10 rounded-xl flex-shrink-0">
+                                <span>Bill of Materials (BOM) list</span>
+                            </li>
+                            <li class="flex items-center space-x-4">
+                                <!-- Icon 5: Drawings -->
+                                <img src="https://placehold.co/100x100/ef4444/ffffff?text=Dwg" alt="Drawing Icon" class="w-10 h-10 rounded-xl flex-shrink-0">
+                                <span>Engineering drawings (for fabrication)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Right Column: Optional Add-ons (WITH DYNAMIC REVISIONS) -->
+                    <div class="lg:col-span-3 bg-card-bg p-8 rounded-xl shadow-2xl border bg-gray-800 border-gray-700">
+                        <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-6">
+                            Optional Add-ons: Enhance Your Package
+                        </h3>
+                        <p class="text-gray-400 mb-8">
+                            Customize your service by selecting the necessary enhancements:
+                        </p>
+
+                        <ul class="space-y-4 text-lg">
+                            
+                            <!-- REVISED ITEM: Extra Revisions (Now with Checkbox and Dropdown) -->
+                            <li class="flex justify-between items-center py-3 border-b border-gray-700/50 hover:bg-gray-800/50 px-2 -mx-2 rounded-lg transition-colors">
+                                <div class="flex items-center space-x-4 w-full" id="addon-extra-revisions">
+                                    
+                                    <!-- New Checkbox for enabling revisions -->
+                                    <input type="checkbox" id="checkbox-extra-revisions" class="w-5 h-5 text-primary-color bg-gray-700 border-gray-600 rounded focus:ring-primary-color cursor-pointer flex-shrink-0" checked>
+                                    
+                                    <div class="flex items-center space-x-4 flex-1">
+                                        <!-- Icon for Revision -->
+                                        <img src="https://placehold.co/100x100/3b82f6/ffffff?text=Rev" alt="Revision Icon" class="w-10 h-10 rounded-xl flex-shrink-0">
+                                        
+                                        <!-- Quantity Dropdown for Extra Revisions (0 to 3 extra revisions) -->
+                                        <select id="extra-revision-count" class="p-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-primary-color focus:border-primary-color cursor-pointer text-base quantity-select w-16">
+                                            <option value="0">0</option>
+                                            <option value="1" selected>1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+
+                                        <!-- Label now linked to the checkbox for better UX -->
+                                        <label for="checkbox-extra-revisions" class="text-gray-300 flex-1 cursor-pointer">Extra Revisions to finalize the design (+$300 each)</label>
+                                    </div>
+                                </div>
+                                <!-- Display calculated revision price dynamically -->
+                                <span class="font-bold text-primary-color flex-shrink-0" id="revision-total-display">$300</span>
+                            </li>
+                            
+                            <!-- Structural Analysis -->
+                            <li class="flex justify-between items-center py-3 border-b border-gray-700/50 hover:bg-gray-800/50 px-2 -mx-2 rounded-lg transition-colors">
+                                <div class="flex items-center space-x-4 w-full">
+                                    <input type="checkbox" id="addon-structural-analysis" data-price="500" class="w-5 h-5 text-primary-color bg-gray-700 border-gray-600 rounded focus:ring-primary-color cursor-pointer">
+                                    <div class="flex items-center space-x-4 flex-1">
+                                        <img src="https://placehold.co/100x100/f59e0b/ffffff?text=Str" alt="Structural Analysis Icon" class="w-10 h-10 rounded-xl flex-shrink-0">
+                                        <label for="addon-structural-analysis" class="text-gray-300 flex-1 cursor-pointer">Structural Analysis to ensure the expected payload</label>
+                                    </div>
+                                </div>
+                                <span class="font-bold text-primary-color flex-shrink-0">$500</span>
+                            </li>
+                            
+                            <!-- Assembly Manual -->
+                            <li class="flex justify-between items-center py-3 border-b border-gray-700/50 hover:bg-gray-800/50 px-2 -mx-2 rounded-lg transition-colors">
+                                <div class="flex items-center space-x-4 w-full">
+                                    <input type="checkbox" id="addon-assembly-manual" data-price="400" class="w-5 h-5 text-primary-color bg-gray-700 border-gray-600 rounded focus:ring-primary-color cursor-pointer">
+                                    <div class="flex items-center space-x-4 flex-1">
+                                        <img src="https://placehold.co/100x100/10b981/ffffff?text=Man" alt="Assembly Manual Icon" class="w-10 h-10 rounded-xl flex-shrink-0">
+                                        <label for="addon-assembly-manual" class="text-gray-300 flex-1 cursor-pointer">Assembly manual with top-to-bottom guidelines</label>
+                                    </div>
+                                </div>
+                                <span class="font-bold text-primary-color flex-shrink-0">$400</span>
+                            </li>
+                            
+                            <!-- High Part Count Surcharge -->
+                            <li class="flex justify-between items-center py-3 border-b border-gray-700/50 hover:bg-gray-800/50 px-2 -mx-2 rounded-lg transition-colors">
+                                <div class="flex items-center space-x-4 w-full">
+                                    <input type="checkbox" id="addon-part-surcharge" data-price="400" class="w-5 h-5 text-primary-color bg-gray-700 border-gray-600 rounded focus:ring-primary-color cursor-pointer">
+                                    <div class="flex items-center space-x-4 flex-1">
+                                        <img src="https://placehold.co/100x100/ef4444/ffffff?text=Part" alt="Part Count Icon" class="w-10 h-10 rounded-xl flex-shrink-0">
+                                        <label for="addon-part-surcharge" class="text-gray-300 flex-1 cursor-pointer">High Part Count Surcharge (if fabricated parts > 20)</label>
+                                    </div>
+                                </div>
+                                <span class="font-bold text-primary-color flex-shrink-0">$400</span>
+                            </li>
+                            
+                            <!-- 3D Printing Test -->
+                            <li class="flex justify-between items-center py-3 border-b border-gray-700/50 hover:bg-gray-800/50 px-2 -mx-2 rounded-lg transition-colors">
+                                <div class="flex items-center space-x-4 w-full">
+                                    <input type="checkbox" id="addon-printing-test" data-price="80" class="w-5 h-5 text-primary-color bg-gray-700 border-gray-600 rounded focus:ring-primary-color cursor-pointer">
+                                    <div class="flex items-center space-x-4 flex-1">
+                                        <img src="https://placehold.co/100x100/8b5cf6/ffffff?text=Test" alt="3D Printing Test Icon" class="w-10 h-10 rounded-xl flex-shrink-0">
+                                        <label for="addon-printing-test" class="text-gray-300 flex-1 cursor-pointer">In-house 3D printing test for strength assurance</label>
+                                    </div>
+                                </div>
+                                <span class="font-bold text-primary-color flex-shrink-0">$80</span>
+                            </li>
+                            
+                            <!-- Photorealistic Rendering -->
+                            <li class="flex justify-between items-center py-3 hover:bg-gray-800/50 px-2 -mx-2 rounded-lg transition-colors">
+                                <div class="flex items-center space-x-4 w-full">
+                                    <input type="checkbox" id="addon-photorealistic-rendering" data-price="300" class="w-5 h-5 text-primary-color bg-gray-700 border-gray-600 rounded focus:ring-primary-color cursor-pointer">
+                                    <div class="flex items-center space-x-4 flex-1">
+                                        <img src="https://placehold.co/100x100/34d399/ffffff?text=Photo" alt="Photorealistic Rendering Icon" class="w-10 h-10 rounded-xl flex-shrink-0">
+                                        <label for="addon-photorealistic-rendering" class="text-gray-300 flex-1 cursor-pointer">Photorealistic rendering for marketing purposes</label>
+                                    </div>
+                                </div>
+                                <span class="font-bold text-primary-color flex-shrink-0">$300</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                    <!-- Total Price Display -->
+                <div class="mt-8 p-6 bg-gray-800 rounded-xl border border-gray-700 shadow-lg flex justify-between items-center">
+                    <span class="text-2xl font-semibold text-white">Total Estimated Cost:</span>
+                    <span id="total-price" class="text-4xl font-black text-primary-color">$2,000</span>
+                </div>
+            </div>
+            
+            <!-- END DETAILED SECTION 2 -->
+
+            <!-- START NEW DETAILED SECTION: 3. New Product Development: Pay-As-You-Go -->
+            <div class="p-6 md:p-12 lg:p-36 md:py-16">
+                <!-- Title and Introduction -->
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-white pb-4 inline-block leading-tight">
+                    3. New Product Development: Pay-As-You-Go
+                </h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 mt-8">
+                    
+                    <!-- Left Column: Service Details (3/5 width) -->
+                        <div class="lg:col-span-3 p-8 rounded-xl bg-gray-900 shadow-lg border border-gray-700">
+                        <p class="text-gray-300 mb-6 text-base sm:text-lg">
+                            Perfect for inventors or companies who want to cautiously explore a new idea. Our **Pay-As-You-Go** model allows you to leverage our expertise hour-by-hour to refine your concept with minimal initial commitment.
+                        </p>
+                        
+                        <h4 class="text-xl font-bold text-white mb-3">What We Focus On:</h4>
+                        <ul class="space-y-2 text-gray-300 text-lg list-disc pl-5 mb-8">
+                            <li>Detailed concept refinement and technical scoping.</li>
+                            <li>Product feasibility analysis and validation.</li>
+                            <li>Risk assessment for early-stage development.</li>
+                        </ul>
+
+                        <div class="p-4 rounded-lg bg-gray-800 border-l-4 border-[var(--primary-color)]">
+                            <h4 class="text-[var(--primary-color)] font-bold mb-1">Flexibility:</h4>
+                            <p class="text-gray-300">
+                                If your concept is validated and you're ready to proceed, you can easily switch to our *Fixed Price* or *Turnkey Project* work after a few hours of discussion.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Hourly Rate & CTA (2/5 width, Custom Dark Blue Highlight) -->
+                    <div class="lg:col-span-2 p-8 bg-gray-900 rounded-xl shadow-2xl flex flex-col items-center justify-center text-center border border-gray-700">
+                        
+                        <h3 class="text-4xl font-extrabold text-white mb-6">
+                            Hourly Rate
+                        </h3>
+                        
+                        <p class="text-7xl font-black text-[var(--primary-color)] mb-1">
+                            $40
+                        </p>
+
+                        <p class="text-xl text-white mb-8">
+                            per hour
+                        </p>
+
+                        <!-- CTA Button -->
+                        <a href="Hire.html" class="w-full bg-[var(--primary-color)] hover:bg-[var(--accent-color)] text-white font-bold py-3 px-6 rounded-lg text-lg">
+                            Start Your Discovery Session
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- END NEW DETAILED SECTION 3 -->
+
+            <!-- START NEW DETAILED SECTION: 4. Turnkey Project -->
+            <div class="p-6 md:p-12 lg:p-36 md:py-16 bg-gray-900">
+                <!-- Title -->
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-primary-color pb-4 inline-block leading-tight">
+                    4. Turnkey Project: Full-Stack Custom Systems
+                </h2>
+                
+                <p class="text-gray-300 max-w-4xl mb-8 text-base sm:text-lg">
+                    This is our maximum capability: turning a mechanical design into a "full functioning mechatronic system." We handle all aspects, from initial design and hardware sourcing to coding and final integration.
+                </p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                    
+                    <!-- Left Column: Service Details -->
+                    <div class="lg:col-span-3 p-8 rounded-xl bg-gray-800 shadow-lg border border-gray-700">
+                        <p class="text-gray-300 mb-6 text-lg">
+                            A <b>Turnkey Project</b> is a true partnership to create a custom robot or complex automated system. It covers everything:
+                        </p>
+                        
+                        <ul class="space-y-4 text-gray-300 text-lg list-disc pl-5 mb-8">
+                            <li>Mechanical design & engineering</li>
+                            <li>Sourcing and integration of necessary <b>hardware</b> (motors, sensors, etc.)</li>
+                            <li>Full-stack <b>software development and coding</b></li>
+                            <li>Prototyping and system testing (in-house or remote arrangement with a dummy unit)</li>
+                        </ul>
+
+                        <div class="p-4 rounded-lg bg-gray-800 border-l-4 border-yellow-500">
+                            <h4 class="text-yellow-400 font-bold mb-1">Limited Capacity:</h4>
+                            <p class="text-gray-300">
+                                To maintain the highest quality and focus, we take on a maximum of <b>two</b> Turnkey Projects per year.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Project Range & CTA (Blue Highlight) -->
+                    <div class="lg:col-span-2 p-8 rounded-xl shadow-2xl flex flex-col justify-between bg-gray-800 border border-gray-700">
+                        
+                        <div class="text-center flex flex-col">
+                            <h3 class="text-3xl font-extrabold text-white mb-4">
+                                Project Range
+                            </h3>
+                            
+                            <p class="text-5xl font-black text-blue-400 mb-6">
+                                $35,000 – $300,000+
+                            </p>
+
+                            <p class="text-sm italic text-yellow-400 mb-8 mt-6">
+                                *Cost varies significantly based on system complexity and component cost.
+                            </p>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <a href="Hire.html" class="w-full bg-[var(--primary-color)] hover:bg-[var(--accent-color)] text-white font-bold py-3 px-6 rounded-lg text-lg items-center text-center">
+                            Begin a Turnkey Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- END NEW DETAILED SECTION -->
+        
+    </main>
+
+    <!-- Footer Section Start -->
+    <footer class="bg-gray-950 text-white pt-20">
+        <div class="max-w-8xl mx-auto px-6 md:px-12 lg:px-72">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-b border-gray-800 pb-4">
+                <!-- Column 1: Company Info --><div>
+                    <!-- Logo --><a href="index.html" class="flex items-center space-x-2 mb-4">
+                        <img src="images/2.png" alt="Nyza Engineering Logo" class="h-16">
+                    </a>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Revolutionizing robotics and automation with cutting-edge innovation and exceptional engineering expertise from Bangladesh.
+                    </p>
+                    <div class="flex space-x-4 text-xl">
+                        <a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links --><div>
+                    <h5 class="text-lg font-bold mb-6">Quick Links</h5>
+                    <ul class="space-y-3">
+                        <!-- Updated quick links to match the new page list --><li><a href="index.html" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Home</a></li>
+                        <li><a href="projects.html" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Projects</a></li>
+                        <li><a href="expertise.html" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Expertise</a></li>
+                        <li><a href="whyUs.html" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Why Us</a></li>
+                        <li><a href="Hire.html" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Hire Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Our Expertise (Updated heading) --><div>
+                    <h5 class="text-lg font-bold mb-6">Our Expertise</h5>
+                    <ul class="space-y-3">
+                        <li><a href="expertise.html" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Custom Robotics Development</a></li>
+                        <li><a href="expertise.html" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">AI-Driven Surveillance</a></li>
+                        <li><a href="expertise.html" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Automation & Industrial Robotics</a></li>
+                        <li><a href="expertise.html" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Embedded Systems & IoT</a></li>
+                        <li><a href="expertise.html" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Smart Agriculture Solutions</a></li>
+                        <li><a href="expertise.html" class="text-gray-400 hover:text-[rgb(93,168,255)] transition-colors">Consultation & Research</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact Us --><div>
+                    <h5 class="text-lg font-bold mb-6">Contact Us</h5>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-center space-x-3">
+                            <svg class="h-5 w-5 text-[rgb(93,168,255)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span>Dhaka, Bangladesh</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="h-5 w-5 text-[rgb(93,168,255)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.293 1.147a1 1 0 00-.464 1.186l.96 1.764a1 1 0 001.21.502l4.493-1.498a1 1 0 011.21-.502l1.147 2.293a1 1 0 001.186.464l1.764-.96a1 1 0 00.502-1.21l-1.498-4.493a1 1 0 01.684-.948H19a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path></svg>
+                            <span>+8801575436196</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="h-5 w-5 text-[rgb(93,168,255)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <span>contact@nyzaengineering.com</span>
+                        </li>
+                    </ul>
+                    <a href="Hire.html" class="mt-6 inline-block bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-3 px-8 rounded-md shadow-lg">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+
+            <!-- Copyright and Legal Links --><div class="text-center py-8">
+                <p class="text-gray-500 text-sm">
+                    © 2025 Nyza Engineering Design. All rights reserved.
+                </p>
+                <div class="mt-2 text-gray-500 text-sm space-x-4">
+                    <a href="#" class="hover:text-[rgb(93,168,255)] transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-[rgb(93,168,255)] transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-[rgb(93,168,255)] transition-colors">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile menu functionality
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            const BASE_PRICE = 2000;
+            const EXTRA_REVISION_COST = 300;
+
+            /**
+             * Calculates the total project cost based on the fixed base price,
+             * selected extra revisions, and checked add-ons.
+             */
+            function calculateTotal() {
+                let total = BASE_PRICE;
+                let revisionCost = 0;
+
+                // 1. Calculate EXTRA Revision Cost based on the checkbox and dropdown
+                const revisionCheckbox = document.getElementById('checkbox-extra-revisions');
+                const revisionCountSelect = document.getElementById('extra-revision-count');
+                
+                // Check if the revision option is active
+                if (revisionCheckbox.checked) {
+                    // This is the number of EXTRA revisions (0-3)
+                    const extraRevisions = parseInt(revisionCountSelect.value, 10);
+                    revisionCost = extraRevisions * EXTRA_REVISION_COST;
+                    revisionCountSelect.disabled = false;
+                    revisionCountSelect.classList.remove('opacity-50'); // Ensure it looks enabled
+                } else {
+                    revisionCost = 0;
+                    revisionCountSelect.disabled = true;
+                    revisionCountSelect.classList.add('opacity-50'); // Visually disable the dropdown
+                }
+                
+                total += revisionCost;
+
+                // Update individual revision cost display
+                document.getElementById('revision-total-display').textContent = `$${revisionCost.toLocaleString()}`;
+
+
+                // 2. Calculate other Add-on Costs
+                // Select all checkboxes that have a data-price attribute
+                // We ignore the revision checkbox here as it's handled separately
+                const addonCheckboxes = document.querySelectorAll('input[type="checkbox"][data-price]');
+                addonCheckboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        // Add the price if the checkbox is checked
+                        total += parseInt(checkbox.getAttribute('data-price'), 10);
+                    }
+                });
+
+                // 3. Update Display
+                const totalPriceElement = document.getElementById('total-price');
+                // Format the number as currency string
+                totalPriceElement.textContent = `$${total.toLocaleString()}`;
+            }
+
+            // Run the calculation function when the page loads to set the initial total
+            calculateTotal();
+
+            // Add event listeners to all checkboxes and the select to recalculate on change
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', calculateTotal);
+            });
+
+            const revisionSelect = document.getElementById('extra-revision-count');
+            revisionSelect.addEventListener('change', calculateTotal);
+        });
+    </script>
+</body>
+</html>
