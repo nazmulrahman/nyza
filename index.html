@@ -2,6 +2,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZFRTS2MCTF"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZFRTS2MCTF');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nyza Engineering Design</title>
@@ -146,6 +155,8 @@
         
     </style>
 </head>
+
+
 <body>
 
     <!-- Header Section -->
@@ -542,6 +553,61 @@
                         <img src="images/featured/solar.jpg" alt="Medical Assistance Robot" class="w-full h-auto object-cover rounded-md">
                     </div>
                 </div>
+
+                <!-- Project Card 1: Image on Right -->
+                <div class="bg-gray-900 rounded-xl shadow-lg flex flex-col md:flex-row items-stretch overflow-hidden">
+                    <!-- Text Content - Adjusted padding and font sizes for better mobile view -->
+                    <div class="md:w-1/2 p-6 lg:p-12 space-y-3">
+                        <h3 class="text-[rgb(93,168,255)] uppercase tracking-widest text-xs sm:text-sm font-semibold">Military Robotics</h3>
+                        <h4 class="text-2xl sm:text-3xl font-bold mb-2">Autonomous Tank Robot</h4>
+                        <div>
+                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">OVERVIEW</h5>
+                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
+                                An advanced autonomous ground robot designed for battlefield operations and surveillance, capable of remote operation from anywhere in the world.
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">PROJECT BRIEF</h5>
+                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
+                                The system integrates ROS2, RTK GPS, LiDAR, 3D cameras, and IMU sensors to enable real-time mapping, navigation, and situational awareness. It supports both indoor and outdoor SLAM for autonomous mobility across complex terrains.
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">ROLE</h5>
+                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
+                                Lead Mechatronics Engineer, Robotics Programmer
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="text-xs sm:text-sm font-bold uppercase text-[rgb(93,168,255)]">METHOD</h5>
+                            <p class="text-gray-300 text-sm leading-relaxed mt-1">
+                                From mechanical design and prototyping to software development and testing, we handled the entire development cycle. The robot features a modular structure with AI-driven perception, reliable communication, and robust performance across challenging military terrains.
+                            </p>
+                        </div>
+
+                        <!-- Skill Tags -->
+                        <div class="flex flex-wrap gap-2 pt-4">
+                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">ROS2</span>
+                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">SLAM & Navigation</span>
+                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Computer Vision & AI</span>
+                            <span class="bg-gray-700 text-gray-200 text-xs font-semibold px-3 py-1 rounded-full">Embedded Systems & IOT</span>
+                        </div>
+                        <!-- New button group -->
+                        <div class="flex flex-wrap gap-4 mt-6">
+                            <a href="projects.html" class="bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg text-sm inline-block">
+                                View Project Detail
+                            </a>
+                            <a href="projects.html" class="bg-gray-700 hover:bg-gray-600 transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg text-sm inline-block">
+                                See all projects
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Image -->
+                    <div class="md:w-1/2 p-4 md:p-6 flex items-center justify-center m-[28px]">
+                        <img src="https://placehold.co/800x600/1f2937/fff?text=Automated+Warehouse" alt="Automated Warehouse System" class="w-full h-auto object-cover rounded-md">
+                    </div>
+                </div>
+
             </div>
             <div class="text-center mt-16">
                 <a href="projects.html" class="bg-[rgb(93,168,255)] hover:bg-[rgb(63,138,225)] transition-colors text-white font-bold py-2 px-6 rounded-md shadow-lg text-sm">
@@ -559,76 +625,20 @@
                 What Our Clients Say
             </h2>
 
-            <div class="relative w-full overflow-hidden">
-                <!-- Carousel track for the cards -->
-                <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out">
-                    <!-- Testimonial Card 1 -->
-                    <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4">
-                        <div class="bg-gray-800 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center h-full">
-                            <img src="images/Home/Clients/Eric newman.jpg" alt="Client 1" class="w-32 h-32 rounded-full mb-6 object-cover aspect-square border-4 border-[rgb(93,168,255)]">
-                            <h4 class="text-xl font-bold mb-1">Eric Newman</h4>
-                            <p class="text-base text-gray-400 font-medium mb-4">Director of Merl Inc Engineering </p>
-                            <p class="text-base text-gray-300 leading-relaxed mb-6">
-                               "Fayshal was exceptional from start to finish. Communication was spot on and he was very easy to deal with. His mechanical designing and FEA simulation expertise accelerated the whole product development life cycle. I like his Professionalism."
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Testimonial Card 2 -->
-                    <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4">
-                        <div class="bg-gray-800 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center h-full">
-                            <img src="images/Home/Clients/Dr. Xavier Kohl.jpg" alt="Client 2" class="w-32 h-32 rounded-full mb-6 object-cover aspect-square border-4 border-[rgb(93,168,255)]">
-                            <h4 class="text-xl font-bold mb-1">Dr. Xavier Kohl</h4>
-                            <p class="text-base text-gray-400 font-medium mb-4">CTO @Circuli-ion</p>
-                            <p class="text-base text-gray-300 leading-relaxed mb-6">
-                                "Delivered On time. Quality of work exceeded expectations."
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Testimonial Card 3 -->
-                    <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4">
-                        <div class="bg-gray-800 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center h-full">
-                            <img src="images/Home/Clients/Bradley Pallister.jpg" alt="Client 3" class="w-32 h-32 rounded-full mb-6 object-cover aspect-square border-4 border-[rgb(93,168,255)]">
-                            <h4 class="text-xl font-bold mb-1">Bradley Pallister</h4>
-                            <p class="text-base text-gray-400 font-medium mb-4">Head of Innovation, Innovolo</p>
-                            <p class="text-base text-gray-300 leading-relaxed mb-6">
-                                "Incredibly fast responses and excellent work!"
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Testimonial Card 4 -->
-                    <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4">
-                        <div class="bg-gray-800 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center h-full">
-                            <img src="images/Home/Clients/Salam sleem.jpg" alt="Client 4" class="w-32 h-32 rounded-full mb-6 object-cover aspect-square border-4 border-[rgb(93,168,255)]">
-                            <h4 class="text-xl font-bold mb-1">Salam Sleem</h4>
-                            <p class="text-base text-gray-400 font-medium mb-4">Mechatronics Engineer Enova Group</p>
-                            <p class="text-base text-gray-300 leading-relaxed mb-6">
-                                " He delivered great work and I enjoyed working with him. His communication was top-notch and his skills were reasonably strong"
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Testimonial Card 5 -->
-                    <div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-4">
-                        <div class="bg-gray-800 rounded-2xl p-8 shadow-xl flex flex-col items-center text-center h-full">
-                            <img src="images/Home/Clients/Stephen Les Lyons.jpg" alt="Client 5" class="w-32 h-32 rounded-full mb-6 object-cover aspect-square border-4 border-[rgb(93,168,255)]">
-                            <h4 class="text-xl font-bold mb-1">Stephen Les Lyons</h4>
-                            <p class="text-base text-gray-400 font-medium mb-4">Director of Operations Windsocks Australia</p>
-                            <p class="text-base text-gray-300 leading-relaxed mb-6">
-                                "He was clearly very skilled in 3D and 2D modelling. I was impressed by his ability to quickly grasp the nature of what we needed, they came back with relevant questions and was very easy to deal with. Thank you."
-                            </p>
-                        </div>
-                    </div>
+            <div class="relative overflow-hidden w-full max-w-[650px] mx-auto rounded-xl shadow-2xl">
+                <div class="relative w-full pb-[56.25%] bg-gray-800 rounded-xl overflow-hidden">
+                    <iframe 
+                        class="absolute top-0 left-0 w-full h-full" 
+                        src="https://www.youtube.com/embed/2YLWbNbbG_g?si=t5PMFAJhogsZHeNA" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen>
+                    </iframe>
                 </div>
-
-                <!-- Carousel Navigation Buttons -->
-                <button id="prev-button" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-[rgb(93,168,255)] transition-colors hidden md:block">
-                    &lt;
-                </button>
-                <button id="next-button" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-[rgb(93,168,255)] transition-colors hidden md:block">
-                    &gt;
-                </button>
             </div>
+
         </div>
     </section>
     <!-- Client Feedback Section End -->
